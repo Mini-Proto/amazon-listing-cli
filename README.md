@@ -6,6 +6,7 @@ A powerful command-line tool for managing Amazon product listings specifically d
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@miniproto/amazon-listing-cli.svg)](https://www.npmjs.com/package/@miniproto/amazon-listing-cli)
+[![GitHub](https://img.shields.io/github/stars/amalcoci/amazon-listing-cli.svg?style=social)](https://github.com/amalcoci/amazon-listing-cli)
 
 ## ✨ Features
 
@@ -41,7 +42,7 @@ npm install @miniproto/amazon-listing-cli
 #### Option B: Install from source
 ```bash
 # Clone the repository
-git clone https://github.com/miniproto/amazon-listing-cli.git
+git clone https://github.com/amalcoci/amazon-listing-cli.git
 cd amazon-listing-cli
 
 # Install dependencies
