@@ -1,0 +1,101 @@
+product:
+  title: "JST Connector Pre-Crimped Wire Leads - 20 AWG GXL Wire, Male-to-Male, 8 inches, 10-Pack for Electronics & Robotics"
+  sku: "MP-JST-MM-8IN-10-ELEC"
+  description: >
+    Premium JST connector pre-crimped wire leads designed for electronics enthusiasts, makers, and robotics projects.
+    Each lead features genuine JST connectors and high-quality 20 AWG GXL automotive-grade wire rated for 3A current.
+    The 8-inch length provides flexibility for various applications while maintaining signal integrity.
+    
+    Perfect for Arduino projects, Raspberry Pi interfacing, drone building, 3D printer modifications, and general
+    electronics prototyping. The pre-crimped design saves time and ensures reliable connections every time.
+    All leads are assembled in the USA with precision tooling for consistent quality.
+
+specifications:
+  pin_count: 2
+  wire_gauge: "20 AWG"
+  length: "8 inches"
+  connector_type: "JST Connector"
+  current_rating: "3A"
+  voltage_rating: "250V"
+  temperature_range: "-40°C to +85°C"
+  wire_type: "GXL"
+  insulation: "PVC"
+
+pricing:
+  price: 12.99
+  compare_at_price: 16.99
+
+images:
+  - "examples/images/jst-connector-main.jpg"
+  - "examples/images/jst-connector-detail.jpg"
+  - "examples/images/jst-connector-application.jpg"
+
+amazon:
+  category: "electronics-components"
+  product_type: "ELECTRONIC_WIRE"
+  search_keywords:
+    - "JST connector wire"
+    - "pre-crimped leads"
+    - "electronics connectors"
+    - "Arduino connectors"
+    - "robotics wiring"
+    - "JST cable assembly"
+    - "GXL wire leads"
+    - "maker supplies"
+    - "prototyping wires"
+    - "drone connectors"
+  bullet_points:
+    - "Genuine JST Connectors: Authentic JST brand connectors ensure reliable, low-resistance connections for sensitive electronics applications"
+    - "Premium GXL Wire: 20 AWG automotive-grade GXL wire rated for 3A/250V with superior temperature resistance and flexibility"
+    - "Pre-Crimped Convenience: Professionally crimped and ready to use - no special tools required, perfect for rapid prototyping"
+    - "Versatile 8-Inch Length: Ideal length for most electronics projects including Arduino, Raspberry Pi, drones, and 3D printers"
+    - "USA Quality Assembly: Precision assembled in the USA with strict quality control for consistent performance in critical applications"
+
+# Additional Amazon-specific attributes for electronics category
+amazon_attributes:
+  connectivity_technology: "Wire"
+  color: "Red/Black"
+  included_components: "10x Pre-Crimped JST Wire Leads"
+  manufacturer: "MiniProto"
+  connector_type_amazon: "JST"
+  special_features:
+    - "Pre-Crimped"
+    - "High Temperature Rated"
+    - "Automotive Grade Wire"
+  target_audience: "Electronics Enthusiasts"
+  compatible_devices: "Arduino, Raspberry Pi, Drones, 3D Printers"
+  part_number: "MP-JST-MM-8-ELEC"
+  style: "Male-to-Male"
+  batteries_required: false
+  condition_type: "new_new"
+
+manufacturer_info:
+  brand: "MiniProto"
+  part_number: "MP-JST-MM-8-ELEC"
+  model: "JST-MM-8-ELEC"
+  manufacturer: "MiniProto"
+  country_of_origin: "United States"
+
+compliance:
+  rohs_compliant: true
+  reach_compliant: true
+  supplier_declared_dg_hz_regulation: "not_applicable"
+
+packaging:
+  package_dimensions:
+    length: 6.0
+    width: 4.0
+    height: 0.5
+    unit: "inches"
+  package_weight: 45
+  package_weight_unit: "grams"
+  items_per_package: 10
+
+shipping:
+  weight: 45
+  weight_unit: "grams"
+  dimensions:
+    length: 6.0
+    width: 4.0
+    height: 0.5
+    unit: "inches"

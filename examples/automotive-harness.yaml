@@ -1,0 +1,64 @@
+# Automotive Wire Harness Configuration
+# Heavy-duty harness for automotive applications
+
+product:
+  title: "MiniProto Automotive 12-Pin Wire Harness | 16 AWG | Waterproof"
+  sku: "MH-AUTO-12PIN-16AWG-WP"
+  description: |
+    Heavy-duty 12-pin automotive wire harness with waterproof connectors.
+    
+    Engineered for automotive excellence:
+    - Marine-grade 16 AWG copper wire for high current applications
+    - IP67 waterproof rating for harsh environmental conditions
+    - UV-resistant insulation prevents degradation
+    - Vibration-resistant construction for mobile applications
+    - Pre-terminated with automotive-grade connectors
+    
+    Perfect for:
+    - Custom automotive installations
+    - Marine electrical systems
+    - Off-road vehicle modifications
+    - Trailer wiring applications
+    - Industrial mobile equipment
+    
+    Meets automotive industry standards for reliability and durability.
+
+specifications:
+  pin_count: 12
+  wire_gauge: "16 AWG"
+  length: "3 feet"
+  connector_type: "Deutsch Connector"
+  current_rating: "15A"
+  voltage_rating: "12V DC"
+  temperature_range: "-40°C to +125°C"
+
+pricing:
+  price: 89.99
+  compare_at_price: 129.99
+
+images:
+  - "./images/auto-harness-main.jpg"
+  - "./images/auto-harness-connector.jpg" 
+  - "./images/auto-harness-installed.jpg"
+  - "./images/auto-harness-specs.jpg"
+  - "./images/auto-harness-package.jpg"
+
+amazon:
+  category: "automotive-electrical"
+  search_keywords:
+    - "automotive wire harness"
+    - "12 pin connector"
+    - "16 AWG automotive wire"
+    - "waterproof connector"
+    - "deutsch connector"
+    - "marine wiring"
+    - "trailer harness"
+    - "automotive electrical"
+    - "off road wiring"
+    - "heavy duty harness"
+  bullet_points:
+    - "AUTOMOTIVE GRADE: 16 AWG marine-grade copper wire rated for high current automotive applications up to 15A"
+    - "WATERPROOF DESIGN: IP67 rated Deutsch connectors provide reliable performance in harsh weather conditions"
+    - "DURABLE CONSTRUCTION: UV-resistant insulation and vibration-resistant design built for mobile applications"
+    - "VERSATILE USE: Perfect for custom automotive, marine, trailer, and off-road electrical installations"
+    - "PROFESSIONAL QUALITY: Meets automotive industry standards with comprehensive testing and quality assurance"

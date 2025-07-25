@@ -1,0 +1,59 @@
+# Basic Wire Harness Configuration
+# Simple 8-pin harness for industrial applications
+
+product:
+  title: "MiniProto 8-Pin Wire Harness | 18 AWG | 24 inches"
+  sku: "MH-8PIN-18AWG-24IN"
+  description: |
+    Professional 8-pin wire harness designed for industrial applications.
+    
+    Features:
+    - High-quality 18 AWG copper wire
+    - Durable insulation rated for industrial environments
+    - Precision crimped terminals for reliable connections
+    - Custom length available upon request
+    
+    Applications:
+    - Industrial automation systems
+    - Control panel wiring
+    - Machine interconnects
+    - Custom electronic projects
+    
+    Quality assured by MiniProto's rigorous testing standards.
+
+specifications:
+  pin_count: 8
+  wire_gauge: "18 AWG"
+  length: "24 inches"
+  connector_type: "Crimp Terminal"
+  current_rating: "10A"
+  voltage_rating: "300V"
+  temperature_range: "-40°C to +85°C"
+
+pricing:
+  price: 24.99
+  compare_at_price: 34.99
+
+images:
+  - "./images/harness-main.jpg"
+  - "./images/harness-connector-detail.jpg"
+  - "./images/harness-dimensions.jpg"
+  - "./images/harness-application.jpg"
+
+amazon:
+  category: "industrial-electrical"
+  search_keywords:
+    - "wire harness"
+    - "8 pin connector"
+    - "18 AWG wire"
+    - "industrial cable"
+    - "custom harness"
+    - "electrical connector"
+    - "control cable"
+    - "automation wire"
+  bullet_points:
+    - "INDUSTRIAL GRADE: 18 AWG copper wire with high-quality insulation rated for harsh environments"
+    - "RELIABLE CONNECTIONS: Precision crimped terminals ensure secure, long-lasting electrical connections"
+    - "VERSATILE APPLICATION: Perfect for industrial automation, control panels, and custom electronic projects"
+    - "QUALITY ASSURED: Manufactured to strict standards with comprehensive testing for reliability"
+    - "CUSTOM SOLUTION: Professional wire harness solution designed for demanding applications"

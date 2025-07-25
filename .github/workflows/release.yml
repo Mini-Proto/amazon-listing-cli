@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build package
+      run: npm run build
+
+    - name: Run tests
+      run: npm test
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          ## Changes in this Release
+          - See CHANGELOG.md for detailed changes
+          
+          ## Installation
+          ```bash
+          npm install -g @miniproto/amazon-listing-cli@${{ github.ref_name }}
+          ```
+          
+          ## What's Changed
+          Full Changelog: https://github.com/miniproto/amazon-listing-cli/compare/v1.0.0...${{ github.ref_name }}
+        draft: false
+        prerelease: false

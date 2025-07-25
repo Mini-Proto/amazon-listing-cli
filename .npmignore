@@ -1,0 +1,60 @@
+# Source files
+*.ts
+!dist/**/*.js
+!dist/**/*.d.ts
+
+# Development files
+.github/
+docs/development/
+examples/test-*
+examples/real-production-*
+
+# Build artifacts
+tsconfig.json
+tsconfig.*.json
+
+# Testing
+test/
+tests/
+*.test.*
+*.spec.*
+
+# Development dependencies
+.eslintrc.*
+.prettierrc.*
+jest.config.*
+vitest.config.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env*
+
+# Cache
+.amazon-harness/
+processed-images/
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# Documentation drafts
+README.dev.md
+CONTRIBUTING.md
+
+# Scripts
+scripts/
+build/

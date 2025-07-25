@@ -1,0 +1,107 @@
+product:
+  title: "4-Pin Wire Harness Assembly - 22 AWG, 12 inches, Basic Electrical Connector for DIY Projects"
+  sku: "MP-BASIC-4PIN-12IN-BUDGET"
+  description: >
+    Affordable 4-pin wire harness assembly perfect for basic electrical projects, hobby applications, and 
+    learning environments. Features standard 22 AWG wire with reliable crimp terminals for secure connections.
+    
+    This budget-friendly harness is ideal for students, hobbyists, and anyone needing a simple electrical
+    connection solution. The 12-inch length is perfect for compact projects while the 4-pin configuration
+    handles most basic electrical needs including power, ground, and two signal wires.
+    
+    While designed for cost-effectiveness, quality is not compromised. Each harness is assembled with
+    precision tooling and tested for continuity. Great for educational projects, prototyping, and
+    non-critical applications where reliability is important but premium features aren't required.
+
+specifications:
+  pin_count: 4
+  wire_gauge: "22 AWG"
+  length: "12 inches"
+  connector_type: "Crimp Terminal"
+  current_rating: "1A"
+  voltage_rating: "125V"
+  temperature_range: "0°C to +60°C"
+  wire_type: "PVC"
+  insulation: "Standard PVC"
+
+pricing:
+  price: 6.99
+  compare_at_price: 9.99
+
+images:
+  - "examples/images/budget-harness-main.jpg"
+  - "examples/images/budget-harness-detail.jpg"
+
+amazon:
+  category: "electronics-components"
+  product_type: "ELECTRONIC_WIRE"
+  search_keywords:
+    - "wire harness assembly"
+    - "4 pin connector"
+    - "basic electrical wire"
+    - "DIY wiring kit"
+    - "hobby electronics"
+    - "budget wire harness"
+    - "educational electronics"
+    - "simple connector"
+  bullet_points:
+    - "Budget-Friendly Solution: Cost-effective 4-pin harness perfect for hobby projects, educational use, and basic electrical applications"
+    - "Reliable Construction: 22 AWG wire with precision-crimped terminals ensure dependable connections for non-critical applications"
+    - "Compact 12-Inch Design: Perfect length for small projects without excess wire - ideal for breadboard work and compact assemblies"
+    - "Educational Value: Great for students learning electronics, hobbyists building projects, and makers on a budget"
+
+# Basic attributes for budget product
+amazon_attributes:
+  connectivity_technology: "Wire"
+  color: "Multi-colored"
+  included_components: "4-Pin Wire Harness Assembly"
+  manufacturer: "MiniProto"
+  connector_type_amazon: "Crimp Terminal"
+  special_features:
+    - "Budget Friendly"
+    - "Educational Use"
+  target_audience: "Hobbyists"
+  part_number: "MP-BASIC-4PIN-12IN-BUDGET"
+  style: "4-Pin Basic"
+  batteries_required: false
+  condition_type: "new_new"
+
+manufacturer_info:
+  brand: "Generic" # Budget positioning
+  part_number: "MP-BASIC-4PIN-12IN-BUDGET"
+  model: "BASIC-4PIN-12IN-BUDGET"
+  manufacturer: "MiniProto"
+  country_of_origin: "China" # Cost optimization
+
+compliance:
+  rohs_compliant: true
+  supplier_declared_dg_hz_regulation: "not_applicable"
+
+packaging:
+  package_dimensions:
+    length: 4.0
+    width: 3.0
+    height: 0.25
+    unit: "inches"
+  package_weight: 25
+  package_weight_unit: "grams"
+  items_per_package: 1
+
+shipping:
+  weight: 25
+  weight_unit: "grams"
+  dimensions:
+    length: 4.0
+    width: 3.0
+    height: 0.25
+    unit: "inches"
+
+# Budget-focused marketing
+marketing:
+  value_proposition: "Quality basics at an affordable price"
+  target_market: "Education, hobbyists, budget-conscious makers"
+  key_benefits:
+    - "Low cost entry point"
+    - "No premium features you don't need"
+    - "Perfect for learning and experimentation"
+    - "Reliable enough for non-critical applications"

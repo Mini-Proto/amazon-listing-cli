@@ -1,0 +1,70 @@
+# High Pin Count Wire Harness Configuration  
+# Complex harness for advanced industrial applications
+
+product:
+  title: "MiniProto 64-Pin Industrial Wire Harness | 22 AWG | Shielded"
+  sku: "MH-IND-64PIN-22AWG-SH"
+  description: |
+    Professional 64-pin industrial wire harness with advanced shielding for complex applications.
+    
+    Advanced features:
+    - 64-pin configuration for complex signal routing
+    - 22 AWG wire optimized for signal integrity
+    - EMI/RFI shielding for noise-sensitive applications
+    - Individual wire color coding for easy identification
+    - Flexible PVC jacket for routing in tight spaces
+    - Pre-tested for continuity and insulation resistance
+    
+    Industrial applications:
+    - PLC and automation systems
+    - CNC machine control panels
+    - Data acquisition systems
+    - Instrumentation interconnects
+    - Complex control system wiring
+    - Test and measurement equipment
+    
+    Manufactured to IPC/WHMA-A-620 standards for professional reliability.
+    Custom pin configurations and lengths available upon request.
+
+specifications:
+  pin_count: 64
+  wire_gauge: "22 AWG"
+  length: "6 feet" 
+  connector_type: "Pin Connector"
+  current_rating: "5A"
+  voltage_rating: "300V"
+  temperature_range: "-20°C to +80°C"
+
+pricing:
+  price: 189.99
+  compare_at_price: 249.99
+
+images:
+  - "./images/64pin-harness-main.jpg"
+  - "./images/64pin-connector-detail.jpg"
+  - "./images/64pin-wire-arrangement.jpg" 
+  - "./images/64pin-shielding.jpg"
+  - "./images/64pin-application.jpg"
+  - "./images/64pin-color-coding.jpg"
+
+amazon:
+  category: "electronics-components"
+  search_keywords:
+    - "64 pin harness"
+    - "industrial wire harness" 
+    - "22 AWG wire"
+    - "shielded cable"
+    - "multi pin connector"
+    - "automation harness"
+    - "control panel wiring"
+    - "PLC harness"
+    - "signal cable"
+    - "instrumentation wire"
+    - "data acquisition"
+    - "test equipment cable"
+  bullet_points:
+    - "HIGH DENSITY: 64-pin configuration with 22 AWG wire provides complex signal routing for advanced applications"
+    - "EMI SHIELDED: Advanced shielding design protects against electromagnetic interference in sensitive environments"
+    - "COLOR CODED: Individual wire color coding and labeling system ensures accurate connections and easy troubleshooting"
+    - "PROFESSIONAL GRADE: Manufactured to IPC/WHMA-A-620 standards with comprehensive testing for reliability"
+    - "VERSATILE APPLICATIONS: Ideal for PLC systems, CNC controls, data acquisition, and complex instrumentation setups"

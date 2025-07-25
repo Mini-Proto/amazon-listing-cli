@@ -1,0 +1,135 @@
+product:
+  title: "Custom Automotive Trailer Wiring Harness - 7-Pin RV Connector, 25ft Heavy Duty, Waterproof for Boats, RVs & Trailers"
+  sku: "MP-AUTO-7PIN-25FT-HD"
+  description: >
+    Professional-grade 7-pin automotive trailer wiring harness designed for heavy-duty applications including
+    boat trailers, RV towing, and commercial trailer operations. Features marine-grade waterproof connectors
+    and UV-resistant insulation for long-lasting outdoor performance.
+    
+    This custom harness includes all necessary circuits: running lights, brake lights, turn signals, electric brake
+    controller, and auxiliary power. The 25-foot length accommodates larger vehicles and provides installation
+    flexibility. Each wire is clearly labeled and color-coded according to SAE J1128 standards.
+    
+    Built with premium automotive-grade TXL wire for superior temperature resistance and flexibility in
+    extreme weather conditions. All connections are sealed with marine-grade heat shrink and dielectric grease
+    for maximum corrosion resistance. Includes detailed installation guide and wire diagram.
+
+specifications:
+  pin_count: 7
+  wire_gauge: "12 AWG" # Heavy duty for trailer applications
+  length: "25 feet"
+  connector_type: "7-Pin RV Connector"
+  current_rating: "20A"
+  voltage_rating: "12V DC"
+  temperature_range: "-40°F to +200°F"
+  wire_type: "TXL"
+  insulation: "PVC with UV protection"
+  waterproof_rating: "IP67"
+
+pricing:
+  price: 89.99
+  compare_at_price: 119.99
+
+images:
+  - "examples/images/trailer-harness-main.jpg"
+  - "examples/images/trailer-harness-connector.jpg"
+  - "examples/images/trailer-harness-installation.jpg"
+  - "examples/images/trailer-harness-diagram.jpg"
+
+amazon:
+  category: "automotive-electrical"
+  product_type: "AUTOMOTIVE_WIRE"
+  search_keywords:
+    - "trailer wiring harness"
+    - "7 pin RV connector"
+    - "boat trailer wiring"
+    - "automotive trailer plug"
+    - "heavy duty trailer wire"
+    - "waterproof trailer harness"
+    - "RV towing accessories"
+    - "marine trailer wiring"
+    - "7 way trailer connector"
+    - "trailer electrical kit"
+  bullet_points:
+    - "Heavy-Duty 7-Pin Design: Complete wiring solution with all circuits - running lights, brake lights, turn signals, electric brakes, and auxiliary power"
+    - "Marine-Grade Waterproofing: IP67 rated connectors with sealed connections and dielectric grease protection against salt water and corrosion"
+    - "Premium TXL Wire: 12 AWG automotive-grade TXL wire rated for 20A with superior flexibility and temperature resistance from -40°F to +200°F"
+    - "25-Foot Professional Length: Extra-long design accommodates larger vehicles and provides installation flexibility for complex routing requirements"
+    - "SAE J1128 Compliant: Color-coded and labeled wires meet automotive industry standards with included installation guide and wiring diagram"
+
+# Advanced automotive-specific attributes
+amazon_attributes:
+  connectivity_technology: "Wired"
+  color: "Black with colored tracer wires"
+  included_components: "Wiring Harness, Installation Guide, Wire Diagram, Mounting Hardware"
+  manufacturer: "MiniProto"
+  connector_type_amazon: "7-Pin RV"
+  special_features:
+    - "Waterproof"
+    - "Heavy Duty"
+    - "UV Resistant" 
+    - "Marine Grade"
+    - "SAE Compliant"
+  vehicle_service_type: "Trailer Towing"
+  compatible_vehicles: "RVs, Boats, Trailers, Pickup Trucks, SUVs"
+  part_number: "MP-AUTO-7PIN-25FT-HD"
+  fitment_type: "Universal"
+  batteries_required: false
+  condition_type: "new_new"
+  
+  # Automotive specific fields
+  automotive:
+    wire_harness_type: "Trailer Wiring"
+    circuit_count: 7
+    connector_gender: "Male/Female"
+    mounting_type: "Plug-In"
+    oem_compatibility: "Universal"
+
+manufacturer_info:
+  brand: "MiniProto"
+  part_number: "MP-AUTO-7PIN-25FT-HD"
+  model: "AUTO-7PIN-25FT-HD"
+  manufacturer: "MiniProto"
+  country_of_origin: "United States"
+  warranty: "2 Year Limited"
+
+compliance:
+  rohs_compliant: true
+  sae_j1128_compliant: true
+  dot_compliant: true
+  fmvss_compliant: true
+  supplier_declared_dg_hz_regulation: "not_applicable"
+
+packaging:
+  package_dimensions:
+    length: 12.0
+    width: 8.0
+    height: 3.0
+    unit: "inches"
+  package_weight: 1200
+  package_weight_unit: "grams"
+  items_per_package: 1
+
+shipping:
+  weight: 1200
+  weight_unit: "grams"
+  dimensions:
+    length: 12.0
+    width: 8.0
+    height: 3.0
+    unit: "inches"
+  shipping_class: "Standard"
+  
+# Installation and technical information
+technical_specs:
+  wire_colors:
+    - "White: Ground"
+    - "Brown: Running Lights"
+    - "Yellow: Left Turn/Brake"
+    - "Green: Right Turn/Brake" 
+    - "Red: Brake Lights"
+    - "Blue: Electric Brake Controller"
+    - "Purple: Auxiliary/Reverse"
+  max_current_per_circuit: "20A"
+  recommended_fuse: "20A"
+  installation_time: "30-60 minutes"
