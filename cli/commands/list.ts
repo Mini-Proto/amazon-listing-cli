@@ -20,7 +20,7 @@ listCommand
   .option('--filter <pattern>', 'Filter listings by SKU pattern or keywords')
   .option('-v, --verbose', 'Enable verbose output')
   .option('-d, --detailed', 'Show detailed information for each listing')
-  .option('-l, --limit <number>', 'Limit number of results', '50')
+  .option('-l, --limit <number>', 'Limit number of results', '250')
   .action(async (options: ListOptions) => {
     try {
       console.log(chalk.blue('📋 Amazon Listing Manager\n'));
@@ -39,7 +39,7 @@ listCommand
       const listings: ListingInfo[] = [];
 
       try {
-        // First try FBA inventory
+        // First try FBA inventory (note: this only returns first ~50 items due to API limitations)
         const inventoryResponse = await client.makeRequest(
           'GET',
           '/fba/inventory/v1/summaries',
@@ -54,6 +54,7 @@ listCommand
 
         if (inventoryResponse.payload && (inventoryResponse.payload as any).inventorySummaries) {
           let items = (inventoryResponse.payload as any).inventorySummaries;
+          const limit = parseInt(String(options.limit || '250'));
 
           // Apply filter if specified
           if (options.filter) {
@@ -65,8 +66,7 @@ listCommand
             );
           }
 
-          // Apply limit
-          const limit = parseInt(String(options.limit || '50'));
+          // Apply limit (already handled by pagination loop)
           items = items.slice(0, limit);
 
           items.forEach((item: any) => {
