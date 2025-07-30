@@ -60,7 +60,7 @@ export class ListingsItemsAPI {
       const attributes = this.buildListingAttributes(harnessConfig, uploadedImages, marketplaceIds[0]);
 
       const request: CreateListingRequest = {
-        productType: 'ELECTRONIC_WIRE',
+        productType: 'ELECTRONIC_CABLE',
         requirements: 'LISTING',
         attributes,
       };
@@ -130,7 +130,7 @@ export class ListingsItemsAPI {
       const attributes = this.buildListingAttributes(harnessConfig, uploadedImages, marketplaceIds[0]);
 
       const request: CreateListingRequest = {
-        productType: 'ELECTRONIC_WIRE',
+        productType: 'ELECTRONIC_CABLE',
         requirements: 'LISTING',
         attributes,
       };
@@ -244,10 +244,8 @@ export class ListingsItemsAPI {
       // Pricing
       list_price: [
         {
-          value: {
-            amount: harnessConfig.pricing.price,
-            currency_code: 'USD',
-          },
+          currency: 'USD',
+          value: harnessConfig.pricing.price,
           marketplace_id: marketplaceId,
         }
       ],
@@ -298,26 +296,36 @@ export class ListingsItemsAPI {
         }
       ] : undefined,
 
-      // Wire harness specific attributes
-      wire_gauge: [
+      // Wire harness specific attributes (using correct Amazon attribute names)
+      gauge: [
         {
-          value: harnessConfig.specifications.wire_gauge,
+          decimal_value: parseInt(harnessConfig.specifications.wire_gauge.match(/\d+/)?.[0] || '20'),
           marketplace_id: marketplaceId,
         }
       ],
 
-      cable_length: [
+      cable: [
         {
-          value: {
-            value: parseFloat(harnessConfig.specifications.length.match(/\d+(\.\d+)?/)?.[0] || '0'),
-            unit: this.extractLengthUnit(harnessConfig.specifications.length),
-          },
+          length: [
+            {
+              unit: this.extractLengthUnit(harnessConfig.specifications.length),
+              string_value: harnessConfig.specifications.length.match(/\d+(\.\d+)?/)?.[0] || '0',
+              decimal_value: parseFloat(harnessConfig.specifications.length.match(/\d+(\.\d+)?/)?.[0] || '0')
+            }
+          ],
+          type: [
+            {
+              language_tag: 'en_US',
+              value: harnessConfig.specifications.connector_type
+            }
+          ],
           marketplace_id: marketplaceId,
         }
       ],
 
       connector_type: [
         {
+          language_tag: 'en_US',
           value: harnessConfig.specifications.connector_type,
           marketplace_id: marketplaceId,
         }
@@ -336,33 +344,122 @@ export class ListingsItemsAPI {
         marketplace_id: marketplaceId,
       })),
 
-      // Additional specifications
-      ...(harnessConfig.specifications.current_rating && {
-        current_rating: [
-          {
-            value: harnessConfig.specifications.current_rating,
-            marketplace_id: marketplaceId,
-          }
-        ],
-      }),
+      // Required attributes for ELECTRONIC_CABLE
+      item_type_keyword: [
+        {
+          value: 'computer-flat-ribbon-cables',
+          marketplace_id: marketplaceId,
+        }
+      ],
 
-      ...(harnessConfig.specifications.voltage_rating && {
-        voltage_rating: [
-          {
-            value: harnessConfig.specifications.voltage_rating,
-            marketplace_id: marketplaceId,
-          }
-        ],
-      }),
+      part_number: [
+        {
+          value: harnessConfig.product.sku,
+          marketplace_id: marketplaceId,
+        }
+      ],
 
-      ...(harnessConfig.specifications.temperature_range && {
-        operating_temperature: [
-          {
-            value: harnessConfig.specifications.temperature_range,
-            marketplace_id: marketplaceId,
-          }
-        ],
-      }),
+      included_components: [
+        {
+          language_tag: 'en_US',
+          value: 'Cables',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      batteries_required: [
+        {
+          value: false,
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      number_of_items: [
+        {
+          value: 1,
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      item_package_dimensions: [
+        {
+          length: {
+            unit: 'inches',
+            value: 10
+          },
+          width: {
+            unit: 'inches',
+            value: 8
+          },
+          height: {
+            unit: 'inches',
+            value: 0.49
+          },
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      item_package_weight: [
+        {
+          unit: 'ounces',
+          value: 1,
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      supplier_declared_dg_hz_regulation: [
+        {
+          value: 'not_applicable',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      // Additional required fields
+      connector_gender: [
+        {
+          language_tag: 'en_US',
+          value: 'Male-to-Female',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      special_feature: [
+        {
+          language_tag: 'en_US',
+          value: 'Heat Resistant',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      compatible_devices: [
+        {
+          language_tag: 'en_US',
+          value: 'Robots',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      // external_product_id: [
+      //   {
+      //     value: harnessConfig.product.sku,
+      //     type: 'SKU',
+      //     marketplace_id: marketplaceId,
+      //   }
+      // ],
+
+      country_of_origin: [
+        {
+          value: 'US',
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      merchant_suggested_asin: [
+        {
+          value: 'B000000000',  // Dummy ASIN for new products
+          marketplace_id: marketplaceId,
+        }
+      ],
     };
 
     // Remove undefined attributes

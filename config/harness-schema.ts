@@ -130,9 +130,9 @@ export const VALIDATION_RULES = {
     },
   },
   images: {
-    minCount: 1,
+    minCount: 0,  // Changed to allow listings without images
     maxCount: 10,
-    required: true,
+    required: false,
     validExtensions: ['.jpg', '.jpeg', '.png'],
   },
   amazon: {

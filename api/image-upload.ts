@@ -110,11 +110,17 @@ export class AmazonImageUploadService {
         throw new Error('No upload destination received from API');
       }
 
-      // Note: This is a mock implementation
-      // Real SP-API would return actual upload URLs
+      // For product images, Amazon expects publicly accessible URLs
+      // Instead of uploading, we need to provide URLs Amazon can fetch
+      // In production, you would upload to your own S3, Cloudinary, etc.
+      
+      // For now, return a placeholder that indicates we need external hosting
+      console.log(chalk.yellow('⚠️  Note: Product images require publicly accessible URLs'));
+      console.log(chalk.gray('   Upload images to S3, Cloudinary, or similar service'));
+      
       return {
-        uploadUrl: 'https://mock-upload-url.amazon.com',
-        uploadId: `upload_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        uploadUrl: `https://your-cdn.com/images/${fileName}`,
+        uploadId: `placeholder_${Date.now()}`,
       };
 
     } catch (error) {
