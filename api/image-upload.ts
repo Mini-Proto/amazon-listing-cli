@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import { SPAPIClient } from './client.js';
 import { ProcessedImage } from '../utils/image-processor.js';
 import { FileUtils } from '../utils/file-utils.js';
+import { VercelBlobUploadService } from './vercel-blob-upload.js';
 
 export interface UploadedImage {
   localPath: string;
@@ -23,16 +24,23 @@ export interface ImageUploadResult {
 
 export class AmazonImageUploadService {
   private client: SPAPIClient;
+  private vercelBlobService?: VercelBlobUploadService;
 
   constructor(client: SPAPIClient) {
     this.client = client;
+    
+    // Initialize Vercel Blob service if token is available
+    const vercelToken = process.env.VERCEL_BLOB_TOKEN;
+    if (vercelToken) {
+      this.vercelBlobService = new VercelBlobUploadService(vercelToken);
+    }
   }
 
-  async uploadImages(processedImages: ProcessedImage[]): Promise<ImageUploadResult> {
+  async uploadImages(processedImages: ProcessedImage[], sku: string): Promise<ImageUploadResult> {
     const uploaded: UploadedImage[] = [];
     const failed: Array<{ path: string; error: string }> = [];
 
-    console.log(chalk.blue(`\n📤 Uploading ${processedImages.length} image(s) to Amazon...\n`));
+    console.log(chalk.blue(`\n📤 Uploading ${processedImages.length} image(s)...\n`));
 
     for (let i = 0; i < processedImages.length; i++) {
       const image = processedImages[i];
@@ -41,7 +49,7 @@ export class AmazonImageUploadService {
       try {
         console.log(chalk.gray(`${i + 1}/${processedImages.length} Uploading ${fileName}...`));
         
-        const uploadResult = await this.uploadSingleImage(image);
+        const uploadResult = await this.uploadSingleImage(image, sku);
         uploaded.push(uploadResult);
         
         console.log(chalk.green(`✅ Uploaded: ${fileName}`));
@@ -62,147 +70,40 @@ export class AmazonImageUploadService {
     return { uploaded, failed };
   }
 
-  private async uploadSingleImage(processedImage: ProcessedImage): Promise<UploadedImage> {
+  private async uploadSingleImage(processedImage: ProcessedImage, sku: string): Promise<UploadedImage> {
     try {
-      // Step 1: Create upload destination
-      const uploadDestination = await this.createUploadDestination(processedImage);
-      
-      // Step 2: Upload image to the destination URL
-      await this.uploadToDestination(processedImage.processedPath, uploadDestination.uploadUrl);
-      
-      // Step 3: Complete the upload and get final URL
-      const finalUrl = await this.completeUpload(uploadDestination.uploadId);
-
-      return {
-        localPath: processedImage.processedPath,
-        amazonUrl: finalUrl,
-        uploadId: uploadDestination.uploadId,
-        size: processedImage.processedSize,
-        dimensions: processedImage.dimensions,
-      };
+      // Check if Vercel Blob service is available
+      if (this.vercelBlobService) {
+        // Upload to Vercel Blob Storage
+        const vercelResult = await this.vercelBlobService.uploadImage(processedImage.processedPath, sku);
+        
+        return {
+          localPath: processedImage.processedPath,
+          amazonUrl: vercelResult.url, // Use the public URL from Vercel Blob
+          uploadId: vercelResult.pathname,
+          size: processedImage.processedSize,
+          dimensions: processedImage.dimensions,
+        };
+      } else {
+        // Fall back to mock implementation if Vercel Blob is not configured
+        console.log(chalk.yellow('⚠️  Vercel Blob not configured. Using mock URLs.'));
+        console.log(chalk.gray('   Set VERCEL_BLOB_TOKEN in your .env file'));
+        
+        const fileName = basename(processedImage.processedPath);
+        return {
+          localPath: processedImage.processedPath,
+          amazonUrl: `https://your-cdn.com/images/${fileName}`,
+          uploadId: `mock_${Date.now()}`,
+          size: processedImage.processedSize,
+          dimensions: processedImage.dimensions,
+        };
+      }
 
     } catch (error) {
       throw new Error(`Upload failed: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
-  private async createUploadDestination(processedImage: ProcessedImage): Promise<{
-    uploadUrl: string;
-    uploadId: string;
-  }> {
-    try {
-      // This is a simplified implementation
-      // In production, you would use the actual SP-API Upload API
-      const fileName = basename(processedImage.processedPath);
-      const fileSize = processedImage.processedSize;
-      
-      const response = await this.client.makeRequest('POST', '/uploads/2020-11-01/uploadDestinations', {
-        resource: fileName,
-        contentMD5: await this.calculateMD5(processedImage.processedPath),
-        contentType: this.getContentType(processedImage.format),
-      });
-
-      if (response.errors && response.errors.length > 0) {
-        throw new Error(`API Error: ${response.errors[0].message}`);
-      }
-
-      if (!response.payload) {
-        throw new Error('No upload destination received from API');
-      }
-
-      // For product images, Amazon expects publicly accessible URLs
-      // Instead of uploading, we need to provide URLs Amazon can fetch
-      // In production, you would upload to your own S3, Cloudinary, etc.
-      
-      // For now, return a placeholder that indicates we need external hosting
-      console.log(chalk.yellow('⚠️  Note: Product images require publicly accessible URLs'));
-      console.log(chalk.gray('   Upload images to S3, Cloudinary, or similar service'));
-      
-      return {
-        uploadUrl: `https://your-cdn.com/images/${fileName}`,
-        uploadId: `placeholder_${Date.now()}`,
-      };
-
-    } catch (error) {
-      throw new Error(`Failed to create upload destination: ${error instanceof Error ? error.message : String(error)}`);
-    }
-  }
-
-  private async uploadToDestination(filePath: string, uploadUrl: string): Promise<void> {
-    try {
-      // In a real implementation, this would upload to the actual S3 pre-signed URL
-      // For now, we'll simulate the upload process
-      
-      const fileInfo = await FileUtils.getFileInfo(filePath);
-      console.log(chalk.gray(`   Uploading ${FileUtils.formatFileSize(fileInfo.size)} to Amazon S3...`));
-      
-      // Simulate upload time based on file size
-      const uploadTime = Math.min(Math.max(fileInfo.size / 100000, 500), 3000); // 500ms to 3s
-      await this.delay(uploadTime);
-      
-      // In production, you would do something like:
-      /*
-      const formData = new FormData();
-      formData.append('file', createReadStream(filePath));
-      
-      const response = await axios.post(uploadUrl, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        timeout: 30000,
-      });
-      */
-      
-    } catch (error) {
-      throw new Error(`Failed to upload to destination: ${error instanceof Error ? error.message : String(error)}`);
-    }
-  }
-
-  private async completeUpload(uploadId: string): Promise<string> {
-    try {
-      // Complete the upload and get the final URL
-      // This would typically involve calling another SP-API endpoint
-      
-      // For now, generate a mock Amazon image URL
-      const imageId = uploadId.replace('upload_', 'img_');
-      const mockUrl = `https://m.media-amazon.com/images/I/${imageId}.jpg`;
-      
-      return mockUrl;
-      
-    } catch (error) {
-      throw new Error(`Failed to complete upload: ${error instanceof Error ? error.message : String(error)}`);
-    }
-  }
-
-  private async calculateMD5(filePath: string): Promise<string> {
-    try {
-      const crypto = await import('crypto');
-      const fs = await import('fs');
-      
-      return new Promise((resolve, reject) => {
-        const hash = crypto.createHash('md5');
-        const stream = fs.createReadStream(filePath);
-        
-        stream.on('error', reject);
-        stream.on('data', chunk => hash.update(chunk));
-        stream.on('end', () => resolve(hash.digest('hex')));
-      });
-    } catch (error) {
-      throw new Error(`Failed to calculate MD5: ${error instanceof Error ? error.message : String(error)}`);
-    }
-  }
-
-  private getContentType(format: string): string {
-    switch (format.toLowerCase()) {
-      case 'jpeg':
-      case 'jpg':
-        return 'image/jpeg';
-      case 'png':
-        return 'image/png';
-      default:
-        return 'application/octet-stream';
-    }
-  }
 
   private delay(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));

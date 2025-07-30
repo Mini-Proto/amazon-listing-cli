@@ -103,7 +103,7 @@ export class AmazonProductFormatter {
       if (isDryRun) {
         console.log(chalk.yellow('   🔍 DRY RUN: Would upload images to Amazon S3'));
       } else {
-        const uploadResult = await this.imageUploadService.uploadImages(result.processedImages);
+        const uploadResult = await this.imageUploadService.uploadImages(result.processedImages, harnessConfig.product.sku);
         result.uploadedImages = uploadResult.uploaded;
 
         if (uploadResult.failed.length > 0) {

@@ -119,7 +119,7 @@ updateCommand
           const processingResult = await processor.processImages(harnessConfig.images);
           
           if (processingResult.success.length > 0) {
-            const uploadResult = await imageAPI.uploadImages(processingResult.success);
+            const uploadResult = await imageAPI.uploadImages(processingResult.success, sku);
             uploadedImages = uploadResult.uploaded;
             console.log(chalk.green(`✅ Uploaded ${uploadedImages.length} images`));
           } else {
