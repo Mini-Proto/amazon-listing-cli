@@ -48,3 +48,9 @@ program.on('command:*', () => {
 });
 
 program.parse(process.argv);
+
+// Exit cleanly if no command was provided
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+  process.exit(0);
+}

@@ -171,6 +171,8 @@ listCommand
           console.log(chalk.gray(`  ${status}: ${count}`));
         });
       }
+      
+      process.exit(0);
 
     } catch (error) {
       console.error(chalk.red('❌ Failed to list products:'), error instanceof Error ? error.message : String(error));

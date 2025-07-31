@@ -92,12 +92,14 @@ createCommand
         console.log(chalk.green('\\n✅ Dry run completed successfully!'));
         console.log(chalk.gray('All validations passed. Ready for actual creation.'));
         console.log(chalk.gray('Run without --dry-run to create the actual listing.'));
+        process.exit(0);
       } else {
         console.log(chalk.green('\\n🎉 Product listing created successfully!'));
         if (creationResult.listingUrl) {
           console.log(chalk.blue(`🔗 View listing: ${creationResult.listingUrl}`));
         }
         console.log(chalk.gray('Check Amazon Seller Central for final processing status.'));
+        process.exit(0);
       }
       
     } catch (error) {

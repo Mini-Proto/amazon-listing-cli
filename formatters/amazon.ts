@@ -178,7 +178,10 @@ export class AmazonProductFormatter {
           this.config.sellerId
         );
 
-        if (result.listingResponse.status === 'ACCEPTED') {
+        console.log(chalk.gray(`   Response status: ${result.listingResponse.status}`));
+        console.log(chalk.gray(`   Has issues: ${result.listingResponse.issues ? result.listingResponse.issues.length : 0}`));
+        
+        if (result.listingResponse.status === 'ACCEPTED' || (result.listingResponse as any).status === 'SUCCESS') {
           console.log(chalk.green('✅ Marketplace listing created successfully'));
           result.submissionId = result.listingResponse.submissionId;
           console.log(chalk.gray(`   Submission ID: ${result.submissionId}`));

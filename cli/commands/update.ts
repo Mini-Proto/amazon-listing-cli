@@ -162,6 +162,7 @@ updateCommand
             
             if (finalStatus.status === 'DONE') {
               console.log(chalk.green('🎉 Update completed successfully!'));
+              process.exit(0);
             } else if (finalStatus.status === 'FATAL') {
               console.log(chalk.red('❌ Update failed during processing'));
               if (finalStatus.issues) {
@@ -169,11 +170,14 @@ updateCommand
                   console.log(chalk.red(`   • ${issue.message}`));
                 });
               }
+              process.exit(1);
             }
           } catch (error) {
             console.log(chalk.yellow('⏳ Update is still processing (check Seller Central in a few minutes)'));
+            process.exit(0);
           }
         }
+        process.exit(0);
       } else {
         console.log(chalk.red('❌ Update failed'));
         if (result.issues) {
@@ -181,6 +185,7 @@ updateCommand
             console.log(chalk.red(`   • ${issue.message}`));
           });
         }
+        process.exit(1);
       }
 
     } catch (error) {

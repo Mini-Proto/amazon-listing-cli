@@ -1,0 +1,39 @@
+# Working listing with correct image format
+product:
+  title: "Premium JST 4-Pin Wire Harness - Professional Grade Cable Assembly 12in"
+  sku: "MP-JST-4PIN-CABLE-001"
+  description: |
+    High-quality 4-pin JST connector wire harness designed for professional applications.
+    Features premium 22 AWG stranded copper wire for maximum reliability.
+    Perfect for robotics, automotive, and electronic prototyping projects.
+
+specifications:
+  pin_count: 4
+  wire_gauge: "22 AWG"
+  length: "12 inches"
+  connector_type: "JST Connector"
+  current_rating: "3A"
+  voltage_rating: "250V"
+  temperature_range: "-40°C to 85°C"
+
+pricing:
+  price: 34.99
+  currency: "USD"
+
+images:
+  - test-images/test-harness.jpg
+
+amazon:
+  category: "electronics-components"
+  search_keywords:
+    - "JST wire harness professional"
+    - "4 pin cable assembly"
+    - "electronic connector harness"
+    - "22 AWG JST cable"
+    - "robotics wire connector"
+  bullet_points:
+    - "PROFESSIONAL GRADE: Premium 22 AWG stranded copper wire ensures maximum conductivity and long service life"
+    - "GENUINE JST CONNECTOR: Industry-standard 4-pin JST connector provides secure and reliable connections"
+    - "OPTIMIZED LENGTH: 12-inch cable offers ideal reach for most applications without excess wire"
+    - "HIGH SPECIFICATIONS: Rated for 3A current and 250V with operating temperature from -40°C to 85°C"
+    - "VERSATILE APPLICATIONS: Perfect for robotics, automotive electronics, prototyping, and industrial use"

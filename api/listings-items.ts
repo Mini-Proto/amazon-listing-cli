@@ -2,6 +2,7 @@ import { SPAPIClient } from './client.js';
 import { SPAPIResponse } from './types.js';
 import { HarnessConfig } from '../config/harness-schema.js';
 import { UploadedImage } from './image-upload.js';
+import chalk from 'chalk';
 
 export interface ListingItem {
   sku: string;
@@ -64,6 +65,16 @@ export class ListingsItemsAPI {
         requirements: 'LISTING',
         attributes,
       };
+
+      // Debug log the request
+      if (process.env.DEBUG_MODE === 'true') {
+        console.log(chalk.gray('\n🔍 DEBUG: Listing request payload:'));
+        console.log(JSON.stringify(request, null, 2));
+        console.log(chalk.gray('\nImage URLs being sent:'));
+        uploadedImages.forEach((img, idx) => {
+          console.log(chalk.gray(`  ${idx + 1}. ${img.amazonUrl}`));
+        });
+      }
 
       const response = await this.client.makeRequest<CreateListingResponse>(
         'PUT',
@@ -250,51 +261,60 @@ export class ListingsItemsAPI {
         }
       ],
 
-      // Images
+      // External product identifier (required for some categories)
+      externally_assigned_product_identifier: [
+        {
+          type: 'EAN',
+          value: '0000000000000',  // Dummy EAN
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      // Images - Use exact format from existing products
       main_product_image_locator: uploadedImages.length > 0 ? [
         {
-          value: {
-            media_location: uploadedImages[0].amazonUrl,
-          },
+          media_location: uploadedImages[0].amazonUrl,
           marketplace_id: marketplaceId,
         }
       ] : undefined,
 
+      // Additional images
       other_product_image_locator_1: uploadedImages.length > 1 ? [
         {
-          value: {
-            media_location: uploadedImages[1].amazonUrl,
-          },
+          media_location: uploadedImages[1].amazonUrl,
           marketplace_id: marketplaceId,
         }
       ] : undefined,
 
       other_product_image_locator_2: uploadedImages.length > 2 ? [
         {
-          value: {
-            media_location: uploadedImages[2].amazonUrl,
-          },
+          media_location: uploadedImages[2].amazonUrl,
           marketplace_id: marketplaceId,
         }
       ] : undefined,
 
       other_product_image_locator_3: uploadedImages.length > 3 ? [
         {
-          value: {
-            media_location: uploadedImages[3].amazonUrl,
-          },
+          media_location: uploadedImages[3].amazonUrl,
           marketplace_id: marketplaceId,
         }
       ] : undefined,
 
       other_product_image_locator_4: uploadedImages.length > 4 ? [
         {
-          value: {
-            media_location: uploadedImages[4].amazonUrl,
-          },
+          media_location: uploadedImages[4].amazonUrl,
           marketplace_id: marketplaceId,
         }
       ] : undefined,
+
+      // Alternative format that Amazon might expect
+      fulfillment_availability: [
+        {
+          fulfillment_channel_code: 'DEFAULT',
+          quantity: 100,
+          marketplace_id: marketplaceId,
+        }
+      ],
 
       // Wire harness specific attributes (using correct Amazon attribute names)
       gauge: [
@@ -454,12 +474,7 @@ export class ListingsItemsAPI {
         }
       ],
 
-      merchant_suggested_asin: [
-        {
-          value: 'B000000000',  // Dummy ASIN for new products
-          marketplace_id: marketplaceId,
-        }
-      ],
+      // Removed merchant_suggested_asin as it's causing conflicts
     };
 
     // Remove undefined attributes
