@@ -1,0 +1,42 @@
+# Production Wire Harness Listing
+product:
+  title: "Premium JST 6-Pin Wire Harness - Professional Grade Cable Assembly 18in"
+  sku: "PROD-JST-6PIN-001"
+  description: |
+    Professional-grade 6-pin JST connector wire harness engineered for demanding applications.
+    Features high-quality 20 AWG stranded copper wire with superior flexibility and durability.
+    Ideal for automotive, industrial automation, and precision electronics projects.
+
+specifications:
+  pin_count: 6
+  wire_gauge: "20 AWG"
+  length: "18 inches"
+  connector_type: "JST Connector"
+  current_rating: "5A"
+  voltage_rating: "300V"
+  temperature_range: "-40°C to 105°C"
+
+pricing:
+  price: 49.99
+  currency: "USD"
+
+# Images relative to this YAML file
+images:
+  - ../images/harness-001-main.jpg
+  - ../images/harness-001-detail.jpg
+  - ../images/harness-001-application.jpg
+
+amazon:
+  category: "electronics-components"
+  search_keywords:
+    - "JST wire harness professional"
+    - "6 pin cable assembly"
+    - "premium electronic connector"
+    - "20 AWG JST cable"
+    - "industrial wire harness"
+  bullet_points:
+    - "PROFESSIONAL GRADE: Premium 20 AWG stranded copper wire ensures maximum conductivity and durability"
+    - "GENUINE JST CONNECTOR: Industry-standard 6-pin JST connector for secure, reliable connections"
+    - "EXTENDED LENGTH: 18-inch cable provides optimal reach for complex installations"
+    - "HIGH PERFORMANCE: Rated for 5A current and 300V with extended temperature range -40°C to 105°C"
+    - "INDUSTRIAL APPLICATIONS: Perfect for automotive, automation, robotics, and professional electronics"
