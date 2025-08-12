@@ -255,4 +255,57 @@ find . -name "*.yaml" -exec amazon-harness validate {} \;
 - **Caching Strategy**: Cache frequently accessed data
 - **Resource Management**: Optimize memory and CPU usage
 
+## Critical Amazon SP-API 2025 Requirements (DEBUGGED)
+
+### New Product Listings Without UPC/EAN Codes
+
+**PROBLEM SOLVED**: Amazon's 2025 SP-API requirements mandate both `external_product_id` and `merchant_suggested_asin` for new listings, causing "External Product ID required" and "Merchant Suggested ASIN required" errors.
+
+**SOLUTION IMPLEMENTED**:
+- **For new custom products**: Set `merchant_suggested_asin: "NEW"` in YAML configuration
+- **API automatically adds**: `supplier_declared_has_product_identifier_exemption: true` 
+- **This exempts**: Custom/private label products from UPC/EAN code requirements
+- **Result**: Amazon accepts listing with status "ACCEPTED" instead of "INVALID"
+
+**YAML Configuration Pattern**:
+```yaml
+amazon:
+  category: "automotive-electrical" 
+  merchant_suggested_asin: "NEW"  # Critical for new products
+  # Do NOT include external_product_id_type unless you have a real UPC/EAN
+```
+
+**API Logic**:
+- When `merchant_suggested_asin: "NEW"`: API excludes external_product_id and merchant_suggested_asin fields
+- When `merchant_suggested_asin: "NEW"`: API includes supplier_declared_has_product_identifier_exemption: true
+- This tells Amazon: "This is a new custom product without standard identifiers"
+
+### Required YAML Fields for 2025 Compliance
+```yaml
+product:
+  brand: "Generic"              # Required (not hardcoded)
+  manufacturer: "MiniProto"     # Required (not hardcoded) 
+  # Other product fields...
+
+amazon:
+  merchant_suggested_asin: "NEW" # Critical for new listings
+  # external_product_id_type only if you have real UPC/EAN
+```
+
+### Debugging Command Pattern
+When listings fail with identifier errors:
+1. **Check YAML**: Ensure `merchant_suggested_asin: "NEW"` for new products
+2. **Verify brands**: Include `brand` and `manufacturer` fields in product section  
+3. **Test dry-run**: Always run with `--dry-run` first
+4. **Check status**: Look for "ACCEPTED" status instead of "INVALID"
+5. **Monitor processing**: New listings show as "PENDING" until Amazon assigns ASIN
+
+### Common Error Resolutions
+- **"External Product ID required"**: Add `merchant_suggested_asin: "NEW"` 
+- **"Merchant Suggested ASIN required"**: Verify YAML has the field, even if set to "NEW"
+- **Status "INVALID"**: Usually means exemption field is missing or incorrectly configured
+- **Status "ACCEPTED"**: Success! Amazon is processing the new listing
+
+This debugging knowledge resolves the most common new listing creation failures and enables successful custom product submissions without expensive UPC codes or lengthy exemption processes.
+
 When invoked for listing management tasks, immediately assess the scope of work, validate prerequisites, and guide the user through the safest and most efficient approach to achieve their objectives. Always prioritize data safety and Amazon compliance throughout all operations.
