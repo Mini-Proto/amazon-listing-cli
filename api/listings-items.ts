@@ -227,14 +227,14 @@ export class ListingsItemsAPI {
 
       brand: [
         {
-          value: 'MiniProto',
+          value: harnessConfig.product.brand,
           marketplace_id: marketplaceId,
         }
       ],
 
       manufacturer: [
         {
-          value: 'MiniProto',
+          value: harnessConfig.product.manufacturer,
           marketplace_id: marketplaceId,
         }
       ],
@@ -257,15 +257,6 @@ export class ListingsItemsAPI {
         {
           currency: 'USD',
           value: harnessConfig.pricing.price,
-          marketplace_id: marketplaceId,
-        }
-      ],
-
-      // External product identifier (required for some categories)
-      externally_assigned_product_identifier: [
-        {
-          type: 'EAN',
-          value: '0000000000000',  // Dummy EAN
           marketplace_id: marketplaceId,
         }
       ],
@@ -459,23 +450,44 @@ export class ListingsItemsAPI {
         }
       ],
 
-      // external_product_id: [
-      //   {
-      //     value: harnessConfig.product.sku,
-      //     type: 'SKU',
-      //     marketplace_id: marketplaceId,
-      //   }
-      // ],
-
       country_of_origin: [
         {
           value: 'US',
           marketplace_id: marketplaceId,
         }
       ],
-
-      // Removed merchant_suggested_asin as it's causing conflicts
     };
+
+    // For new products without UPC/EAN, add exemption
+    if (harnessConfig.amazon.merchant_suggested_asin === 'NEW') {
+      attributes.supplier_declared_has_product_identifier_exemption = [
+        {
+          value: true,
+          marketplace_id: marketplaceId,
+        }
+      ];
+    }
+
+    // Only include merchant_suggested_asin if it's a valid ASIN (not "NEW")
+    if (harnessConfig.amazon.merchant_suggested_asin !== 'NEW' && harnessConfig.amazon.merchant_suggested_asin.length >= 10) {
+      attributes.merchant_suggested_asin = [
+        {
+          value: harnessConfig.amazon.merchant_suggested_asin,
+          marketplace_id: marketplaceId,
+        }
+      ];
+    }
+
+    // Only include external_product_id for existing products (not new listings)
+    if (harnessConfig.amazon.merchant_suggested_asin !== 'NEW') {
+      attributes.external_product_id = [
+        {
+          value: harnessConfig.product.sku,
+          type: harnessConfig.amazon.external_product_id_type,
+          marketplace_id: marketplaceId,
+        }
+      ];
+    }
 
     // Remove undefined attributes
     Object.keys(attributes).forEach(key => {

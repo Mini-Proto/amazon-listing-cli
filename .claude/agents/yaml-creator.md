@@ -160,7 +160,7 @@ When invoked for YAML creation:
 - Extract specifications from product descriptions
 - Generate SKUs using standardized patterns
 - Infer connector types from technical data
-- Suggest appropriate pricing based on specifications
+- Use official pricing from `production-listings/Amazon Product Pricing - SKU COGS.csv` "Sale Price" column
 
 ### Amazon SEO Optimization
 - **Title Optimization**: Include key search terms while staying under 200 characters

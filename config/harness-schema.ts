@@ -2,6 +2,8 @@ export interface HarnessConfig {
   product: {
     title: string;
     sku: string;
+    brand: string;
+    manufacturer: string;
     description: string;
   };
   specifications: {
@@ -20,6 +22,8 @@ export interface HarnessConfig {
   images: string[];
   amazon: {
     category: string;
+    external_product_id_type: string;
+    merchant_suggested_asin: string;
     search_keywords: string[];
     bullet_points: string[];
   };
@@ -77,6 +81,20 @@ export const CONNECTOR_TYPES = [
   'Custom Connector'
 ] as const;
 
+// Valid external product ID types
+export const EXTERNAL_PRODUCT_ID_TYPES = [
+  'ASIN',
+  'UPC',
+  'EAN',
+  'ISBN',
+  'GCID'
+] as const;
+
+// Valid merchant suggested ASIN values
+export const MERCHANT_SUGGESTED_ASIN_VALUES = [
+  'NEW'
+] as const;
+
 // Validation rules for different fields
 export const VALIDATION_RULES = {
   product: {
@@ -91,6 +109,16 @@ export const VALIDATION_RULES = {
       maxLength: 40,
       required: true,
       pattern: /^[A-Z0-9\-_]+$/,
+    },
+    brand: {
+      minLength: 1,
+      maxLength: 50,
+      required: true,
+    },
+    manufacturer: {
+      minLength: 1,
+      maxLength: 50,
+      required: true,
     },
     description: {
       minLength: 50,
@@ -139,6 +167,14 @@ export const VALIDATION_RULES = {
     category: {
       required: true,
       validValues: Object.keys(AMAZON_CATEGORIES) as CategoryKey[],
+    },
+    external_product_id_type: {
+      required: true,
+      validValues: EXTERNAL_PRODUCT_ID_TYPES,
+    },
+    merchant_suggested_asin: {
+      required: true,
+      validValues: MERCHANT_SUGGESTED_ASIN_VALUES,
     },
     search_keywords: {
       minCount: 3,

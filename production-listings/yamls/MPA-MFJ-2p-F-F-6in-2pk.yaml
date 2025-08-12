@@ -1,0 +1,86 @@
+# MFJ 2-Pin Female to Female Wire Harness - 6 Inch - 2-Pack
+# SKU: MPA-MFJ-2P-F-F-6IN-2PK
+# Automotive-grade MFJ connector system with high-temp, fine-strand silicone wire
+
+product:
+  title: "MFJ 2-Pin Female to Female Wire Harness - 6 Inch - 2-Pack - High Temp 200C Silicone Wire - 150-Strand Tinned Copper - Automotive & Marine Grade"
+  sku: "MPA-MFJ-2P-F-F-6IN-2PK"
+  brand: "Generic"
+  manufacturer: "MiniProto"
+  description: |
+    Professional-grade 2-pin MFJ female-to-female wire harness designed for automotive, marine, and industrial applications.
+    Built with genuine MFJ 2x1 female receptacle connectors and premium 18 AWG high-strand-count silicone wire,
+    this harness delivers exceptional flexibility, durability, and performance in harsh environments.
+
+    Key Features:
+    - Genuine MFJ 2x1 female receptacle connectors for maximum compatibility
+    - 18 AWG with 150 strands of tinned copper for extreme flexibility
+    - Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
+    - 6-inch length ideal for short connections, extensions, or adapter setups
+    - Automotive-grade assembly built to IPC/WHMA-A-620 workmanship standards
+    - Black wire construction for a clean, professional look
+    - Sold in a convenient 2-pack for multiple connections or backup
+
+    Technical Specifications:
+    - Connector Type: MFJ 2x1 female receptacle on both ends
+    - Wire Gauge: 18 AWG, 150 strands tinned copper
+    - Insulation: High-temp silicone
+    - Length: 6 inches (152mm)
+    - Color: Black
+    - Current Rating: 18A total (9A per pin)
+    - Voltage Rating: 600V max
+    - Temperature Range: -40C to +200C
+
+    Applications:
+    - Automotive electrical systems and modifications
+    - Marine electronics and power systems
+    - Industrial control and automation
+    - Robotics, drones, and R&D prototypes
+    - Custom electronics projects
+    - Extension cables for MFJ-equipped systems
+
+    Quality Assurance:
+    Each harness is manufactured to IPC/WHMA-A-620 standards with rigorous quality control.
+    All connectors are tested for proper fit and electrical continuity before packaging.
+
+specifications:
+  pin_count: 2
+  wire_gauge: "18 AWG"
+  length: "6 inches"
+  connector_type: "Custom Connector"
+  current_rating: "18A"
+  voltage_rating: "600V"
+  temperature_range: "-40C to +200C"
+
+pricing:
+  price: 10.99
+
+images:
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-2p-F-F-6in-2pk-Main.png"
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-2p-F-F-6in-2pk-Secondary.png"
+
+amazon:
+  category: "automotive-electrical"
+  merchant_suggested_asin: "NEW"
+  search_keywords:
+    - "MFJ wire harness 2 pin"
+    - "automotive female connector cable"
+    - "2x1 receptacle wire harness"
+    - "6 inch MFJ connector"
+    - "18 AWG silicone wire"
+    - "high temperature wire harness"
+    - "tinned copper cable"
+    - "female to female harness"
+    - "MFJ 2 pin connector"
+    - "automotive electrical wire"
+    - "marine grade wire harness"
+    - "black silicone wire cable"
+    - "automotive wiring harness"
+    - "2 pack connector set"
+    - "custom automotive cable"
+  bullet_points:
+    - "GENUINE MFJ CONNECTORS: Authentic MFJ 2x1 female receptacle connectors on both ends for secure, reliable connections"
+    - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance"
+    - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
+    - "AUTOMOTIVE-GRADE ASSEMBLY: Built to IPC/WHMA-A-620 workmanship standards for consistent quality"
+    - "VALUE 2-PACK: Includes two 6-inch harnesses for quick installs, extensions, or spares"
