@@ -48,7 +48,13 @@ scripts/amazon-listing/
 │   ├── image-processor.ts # Image optimization
 │   ├── diff-detector.ts  # Change detection for updates
 │   ├── formatter.ts      # Output formatting
+│   ├── image-namer.ts    # Image renaming logic and pattern matching
 │   └── config.ts         # Config file management
+├── .claude/              # Claude Code sub-agents
+│   └── agents/           # Specialized sub-agents
+│       ├── image-renamer.md  # Image renaming specialist
+│       ├── yaml-creator.md   # YAML configuration creator
+│       └── listing-manager.md # Amazon listing management specialist
 ├── debug/                # Debugging and testing tools
 └── examples/             # Example configurations
 ```
@@ -101,6 +107,7 @@ amazon-harness update config.yaml --dry-run
 # Delete listings (with safety)
 amazon-harness delete SKU-123 --dry-run
 amazon-harness delete --batch "TEST-*" --dry-run
+
 ```
 
 ### Development Commands
@@ -136,6 +143,118 @@ Wire harness configurations with comprehensive validation:
 - Pricing and images
 - Business compliance rules
 
+## Specialized Sub-Agents
+
+Claude Code includes three specialized sub-agents stored in `.claude/agents/` for comprehensive Amazon listing workflow management. These agents are automatically invoked based on context or can be explicitly called.
+
+### 1. Image Renamer Agent (`image-renamer.md`)
+**Purpose**: Batch image renaming operations for Amazon listing production workflows
+**Location**: `.claude/agents/image-renamer.md`
+**Implementation**: `utils/image-namer.ts` for core logic
+**Integration**: Via Claude Code subagent system
+
+#### Capabilities
+- **Pattern Recognition**: Extracts connector families (MFJ, UF3, DDT, DTM), pin counts, connector types, lengths
+- **SKU Generation**: Generates standardized SKUs: `MPA-{FAMILY}-{PINS}p-{TYPE1}-{TYPE2}-{LENGTH}-{PACK}pk`
+- **CSV Integration**: Maps product descriptions to SKU patterns using product database
+- **Safety Features**: Dry-run mode, duplicate detection, Amazon compliance validation
+- **Batch Processing**: Handles entire directories with progress tracking and error recovery
+
+#### Usage Examples
+```bash
+# Invoke the subagent directly in Claude Code
+"Use the image-renamer agent to standardize images in ./production-listings/images"
+
+# Family-specific renaming
+"Use the image-renamer agent to rename MFJ connector images only"
+
+# With custom data source  
+"Use the image-renamer agent with the custom-products.csv file for SKU mapping"
+```
+
+#### Pattern Matching Examples
+- Input: `"2x1 Female Receptacle to Female Receptacle, 6in 1.png"`
+- Output: `"MPA-MFJ-2p-F-F-6in-2pk-Main.png"`
+
+- Input: `"UF3 4-pin Male to Female Connector 12 inch 2pack Secondary.jpg"`
+- Output: `"MPA-UF3-4p-M-F-12in-2pk-Secondary.jpg"`
+
+### 2. YAML Creator Agent (`yaml-creator.md`)
+**Purpose**: Expert YAML configuration creator for Amazon wire harness listings
+**Location**: `.claude/agents/yaml-creator.md`
+**Integration**: Works with all CLI commands requiring YAML configs
+
+#### Capabilities
+- **Comprehensive Config Generation**: Product info, specifications, Amazon attributes, pricing, images
+- **Schema Compliance**: Validates against `config/harness-schema.ts`
+- **Wire Harness Expertise**: Deep understanding of connector specifications and industry standards
+- **Amazon SEO Optimization**: Optimized titles, bullet points, keywords, and category mapping
+- **Template Management**: Reusable configuration templates for common scenarios
+
+#### Features
+- **Auto-Population**: Extract specs from product descriptions and generate SKUs
+- **Technical Validation**: Connector compatibility, wire gauge selection, voltage ratings
+- **Interactive Mode**: Guided configuration creation process
+- **Batch Generation**: Multiple configurations from specifications or CSV import
+
+#### Template Types
+- Standard 2-pin harnesses
+- Multi-pin automotive connectors  
+- Custom application harnesses
+- High-current power connectors
+
+### 3. Listing Manager Agent (`listing-manager.md`)
+**Purpose**: Complete CRUD operations specialist using the SP-API CLI
+**Location**: `.claude/agents/listing-manager.md`
+**Integration**: Expert usage of all `amazon-harness` commands
+
+#### Capabilities
+- **Full CRUD Operations**: Create, Read, Update, Delete with safety validations
+- **CLI Command Mastery**: Expert usage of configure, validate, create, update, list, delete, test commands
+- **Safety & Validation Framework**: Dry-run operations, multi-layer validation, confirmation workflows
+- **Batch Processing**: Safe handling of multiple listings simultaneously
+- **Error Recovery**: Comprehensive error handling with rollback support
+
+#### Workflow Management
+- **Pre-creation Validation**: YAML config, image compliance, SKU uniqueness
+- **Change Detection**: Identify what needs updating with impact assessment  
+- **Status Monitoring**: Track submission approval/rejection process
+- **Production Safeguards**: Environment validation, SKU pattern protection, rate limiting
+
+#### Advanced Features
+- **Search & Discovery**: Advanced filtering, listing analytics, inventory management
+- **Error Handling**: Comprehensive error mapping and recovery strategies
+- **Monitoring & Reporting**: Real-time status, progress indicators, success metrics
+
+### Using Sub-Agents
+
+#### Automatic Invocation
+Sub-agents are automatically invoked based on context:
+- Working with image files → `image-renamer` activates
+- Creating/editing YAML configs → `yaml-creator` activates  
+- Managing Amazon listings → `listing-manager` activates
+
+#### Explicit Invocation
+```bash
+# Explicit invocation examples
+"Use the image-renamer agent to rename all MFJ connector images in the production directory"
+"Use the yaml-creator agent to generate a configuration for this new wire harness product"  
+"Use the listing-manager agent to help me update my Amazon listings safely"
+
+# Automatic invocation (when working with specific tasks)
+"I need to standardize these product image filenames for Amazon"
+"Create a YAML config for this 4-pin JST connector"
+"Help me manage my Amazon listings with the CLI"
+```
+
+#### Integration Benefits
+- **Specialized Expertise**: Each agent provides deep domain knowledge
+- **Safety Standards**: All agents maintain the same safety and validation standards
+- **Workflow Continuity**: Seamless integration with existing CLI tools and processes
+- **Error Prevention**: Specialized validation and safety checks for each workflow stage
+
+The three sub-agents work together to provide comprehensive support for the entire Amazon listing workflow, from image preparation through configuration creation to listing management.
+
 ## Current Implementation Status
 
 ### Completed Features
@@ -147,6 +266,8 @@ Wire harness configurations with comprehensive validation:
 - ✅ **Safety Features**: Dry-run, confirmations, batch operations
 - ✅ **Error Handling**: User-friendly messages and recovery
 - ✅ **Configuration**: Secure credential storage and validation
+- ✅ **Image Renaming**: Batch image renaming with pattern matching and SKU generation
+- ✅ **Sub-Agents**: Specialized agents for complex workflows
 
 ### Known Limitations
 - **Image Upload**: Currently mocked (needs real S3 pre-signed URL implementation)
