@@ -1,31 +1,31 @@
-# Molex MiniFit Jr 2-Pin Female to Female Wire Harness - 6 Inch - 2-Pack
-# SKU: MPA-MFJ-2P-F-F-6IN-2PK
+# Molex MiniFit Jr 4-Pin Male to Male Wire Harness - 12 Inch - 2-Pack
+# SKU: MPA-MFJ-4P-M-M-12IN-2PK
 # Electronics-grade Molex MiniFit Jr connector system with high-temp, fine-strand silicone wire
 
 product:
-  title: "Genuine Molex MiniFit Jr 2-Pin Female to Female Wire Harness - 6 Inch - 2-Pack - High Temp 200C Silicone Wire - 150-Strand Tinned Copper - Electronics & Robotics Grade"
-  sku: "MPA-MFJ-2P-F-F-6IN-2PK"
+  title: "Genuine Molex MiniFit Jr 4-Pin Male to Male Wire Harness - 12 Inch - 2-Pack - High Temp 200C Silicone Wire - 150-Strand Tinned Copper - Electronics & Robotics Grade"
+  sku: "MPA-MFJ-4P-M-M-12IN-2PK"
   brand: "Generic"
   manufacturer: "MiniProto"
   description: |
-    Professional-grade 2-pin Molex MiniFit Jr female-to-female wire harness designed for electronics, robotics, and industrial applications. Built with genuine Molex MiniFit Jr 2x1 female receptacle connectors and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in demanding environments.
+    Professional-grade 4-pin Molex MiniFit Jr male-to-male wire harness designed for electronics, robotics, and industrial applications. Built with genuine Molex MiniFit Jr 2x2 male plug connectors and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in demanding environments.
 
     KEY FEATURES
-    • Genuine Molex MiniFit Jr 2x1 female receptacle connectors for maximum compatibility
+    • Genuine Molex MiniFit Jr 2x2 male plug connectors for maximum compatibility
     • 18 AWG with 150 strands of tinned copper for extreme flexibility
     • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
-    • 6-inch length ideal for short connections, extensions, or adapter setups
+    • 12-inch length ideal for medium-distance connections, extensions, or adapter setups
     • Electronics-grade assembly built to IPC/WHMA-A-620 workmanship standards
     • Black wire construction for a clean, professional look
     • Sold in a convenient 2-pack for multiple connections or backup
 
     TECHNICAL SPECIFICATIONS
-    • Connector Type: Molex MiniFit Jr 2x1 female receptacle on both ends
+    • Connector Type: Molex MiniFit Jr 2x2 male plug on both ends
     • Wire Gauge: 18 AWG, 150 strands tinned copper
     • Insulation: High-temp silicone
-    • Length: 6 inches (152mm)
+    • Length: 12 inches (305mm)
     • Color: Black
-    • Current Rating: 18A total (9A per pin)
+    • Current Rating: 36A total (9A per pin)
     • Voltage Rating: 600V max
     • Temperature Range: -40C to +200C
 
@@ -41,37 +41,36 @@ product:
     Each harness is manufactured to IPC/WHMA-A-620 standards with rigorous quality control. All connectors are tested for proper fit and electrical continuity before packaging.
 
 specifications:
-  pin_count: 2
+  pin_count: 4
   wire_gauge: "18 AWG"
-  length: "6 inches"
+  length: "12 inches"
   connector_type: "Molex MiniFit Jr"
   cable_type: "Silicone Wire"
-  connector_gender: "Female-to-Female"
-  current_rating: "18A"
+  connector_gender: "Male-to-Male"
+  current_rating: "36A"
   voltage_rating: "600V"
   temperature_range: "-40C to +200C"
-  style: "2P-F-F-6IN"
-
+  style: "4P-M-M-12IN"
 pricing:
-  price: 10.99
+  price: 15.99
 
 images:
-  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-2p-F-F-6in-2pk-Main.png"
-  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-2p-F-F-6in-2pk-Secondary.png"
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-4p-M-M-12in-2pk-Main.png"
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-MFJ-4p-M-M-12in-2pk-Secondary.png"
 
 amazon:
   category: "automotive-electrical"
   merchant_suggested_asin: "NEW"
   search_keywords:
-    - "Molex MiniFit Jr wire harness 2 pin"
-    - "electronics female connector cable"
-    - "2x1 receptacle wire harness"
-    - "6 inch Molex MiniFit Jr connector"
+    - "Molex MiniFit Jr wire harness 4 pin"
+    - "electronics male connector cable"
+    - "2x2 male male wire harness"
+    - "12 inch Molex MiniFit Jr connector"
     - "18 AWG silicone wire"
     - "high temperature wire harness"
     - "tinned copper cable"
-    - "female to female harness"
-    - "Molex MiniFit Jr 2 pin connector"
+    - "male to male harness"
+    - "Molex MiniFit Jr 4 pin connector"
     - "electronics prototyping wire"
     - "robotics grade wire harness"
     - "black silicone wire cable"
@@ -79,8 +78,8 @@ amazon:
     - "2 pack connector set"
     - "custom electronics cable"
   bullet_points:
-    - "GENUINE MOLEX MINIFIT JR CONNECTORS: Authentic Molex MiniFit Jr 2x1 female receptacle connectors on both ends for secure, reliable connections"
+    - "GENUINE MOLEX MINIFIT JR CONNECTORS: Authentic Molex MiniFit Jr 2x2 male plug connectors on both ends for secure, reliable connections"
     - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance"
     - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
     - "ELECTRONICS-GRADE ASSEMBLY: Built to IPC/WHMA-A-620 workmanship standards for consistent quality"
-    - "VALUE 2-PACK: Includes two 6-inch harnesses for quick installs, extensions, or spares"
+    - "VALUE 2-PACK: Includes two 12-inch harnesses for quick installs, extensions, or spares"

@@ -1,0 +1,56 @@
+[
+  {
+    "sku": "MPA-MFJ-2P-F-F-6IN-2PK",
+    "asin": "B0FM6P5M8H",
+    "submissionId": "1aa563b941d84b2f9fdb4003549191f0",
+    "createdAt": "2025-08-12T22:32:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/B0FM6P5M8H"
+  },
+  {
+    "sku": "MPA-MFJ-2P-F-F-12IN-2PK",
+    "asin": "B0FM6HFFDJ",
+    "submissionId": "unknown",
+    "createdAt": "2025-08-12T22:32:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/B0FM6HFFDJ"
+  },
+  {
+    "sku": "MPA-MFJ-2P-F-M-6IN-2PK",
+    "asin": "PENDING",
+    "submissionId": "3e580fa71a194944a77f9007e2d4d3e9",
+    "createdAt": "2025-08-13T00:00:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/PENDING",
+    "status": "PROCESSING"
+  },
+  {
+    "sku": "MPA-MFJ-2P-F-M-12IN-2PK",
+    "asin": "PENDING",
+    "submissionId": "b4f84a3001ba456ca670204a08c7fdcd",
+    "createdAt": "2025-08-13T00:00:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/PENDING",
+    "status": "PROCESSING"
+  },
+  {
+    "sku": "MPA-MFJ-2P-M-M-6IN-2PK",
+    "asin": "PENDING",
+    "submissionId": "6cc61b74ee37405fb95c7c5914866c34",
+    "createdAt": "2025-08-13T00:00:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/PENDING",
+    "status": "PROCESSING"
+  },
+  {
+    "sku": "MPA-MFJ-2P-M-M-12IN-2PK",
+    "asin": "PENDING",
+    "submissionId": "0cb200580c744bef82bbc19d263fd947",
+    "createdAt": "2025-08-13T00:00:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/PENDING",
+    "status": "PROCESSING"
+  },
+  {
+    "sku": "MPA-MFJ-FAMILY",
+    "asin": "PENDING",
+    "submissionId": "70847086c33f4408bfef2f764a446d8f",
+    "createdAt": "2025-08-13T00:00:00.000Z",
+    "listingUrl": "https://www.amazon.com/dp/PENDING",
+    "status": "PROCESSING"
+  }
+]

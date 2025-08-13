@@ -11,7 +11,7 @@ async function getListingDetails() {
     const client = new SPAPIClient(config.amazon);
 
     // Get details for an existing SKU
-    const sku = '0S-X2SM-QM93'; // This is an existing product
+    const sku = 'MPA-MFJ-2P-F-F-6IN-2PK'; // Our first MFJ connector
     
     console.log(chalk.blue(`\n📋 Fetching full listing details for SKU: ${sku}\n`));
 

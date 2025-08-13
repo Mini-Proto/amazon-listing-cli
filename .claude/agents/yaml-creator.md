@@ -36,10 +36,10 @@ Deep understanding of connector specifications:
 ```yaml
 product:
   sku: "MPA-{FAMILY}-{PINS}p-{TYPE1}-{TYPE2}-{LENGTH}-{PACK}pk"
-  title: "{PINS}-Pin {FAMILY} {TYPE1} to {TYPE2} Wire Harness - {LENGTH} Length"
-  description: "High-quality {PINS}-pin wire harness with {FAMILY} connectors..."
-  brand: "Your Brand"
-  manufacturer: "Your Company"
+  title: "Genuine {FAMILY} {PINS}-Pin {TYPE1} to {TYPE2} Wire Harness - {LENGTH} - 2-Pack - High Temp 200C Silicone Wire"
+  description: "Professional-grade {PINS}-pin {FAMILY} wire harness with genuine connectors..."
+  brand: "Generic"
+  manufacturer: "MiniProto"
   
 specifications:
   connector_family: "{FAMILY}"
@@ -74,12 +74,12 @@ images:
 ```yaml
 product:
   sku: "MPA-CUSTOM-{SPEC}"
-  title: "Custom Wire Harness Assembly - {DESCRIPTION}"
+  title: "Genuine Custom Wire Harness Assembly - {DESCRIPTION} - Electronics Grade"
   description: |
     Professional-grade custom wire harness designed for specific applications.
     Features high-quality materials and precision manufacturing.
-  brand: "Your Brand"
-  manufacturer: "Your Company"
+  brand: "Generic"
+  manufacturer: "MiniProto"
   
 specifications:
   connector_family: "Mixed"
@@ -206,20 +206,33 @@ Create multiple configurations from specifications:
 
 ## Amazon Compliance
 
+### CRITICAL AMAZON REQUIREMENTS - 2025 UPDATE
+⚠️ **NEVER use "MFJ" abbreviation** - Amazon rejects this terminology
+✅ **ALWAYS use "Molex MiniFit Jr"** - Amazon's preferred term
+✅ **Title prefix**: ALWAYS start titles with "Genuine" - Amazon standard
+✅ **connector_type**: "Molex MiniFit Jr" (not "Custom Connector")
+✅ **cable_type**: "Silicone Wire" (required field)
+✅ **connector_gender**: Dynamic based on SKU (F-F, M-M, M-F)
+✅ **merchant_suggested_asin**: "NEW" (for custom products)
+✅ **Emphasis**: Robotics/Electronics first, then automotive/marine
+
 ### Required Attributes
-- **Category**: Automotive Replacement Parts > Electrical Connectors
-- **Brand**: Manufacturer brand name
-- **Manufacturer**: Company name
-- **UPC/EAN**: Product identifier (when available)
-- **Item Dimensions**: Physical measurements
-- **Item Weight**: Shipping weight
+- **Category**: Automotive Replacement Parts > Electrical Connectors  
+- **Brand**: "Generic" (company standard)
+- **Manufacturer**: "MiniProto" (company standard)
+- **Connector Type**: "Molex MiniFit Jr" (never "MFJ" or "Custom Connector")
+- **Cable Type**: "Silicone Wire" (required for Amazon attributes)
+- **External Product ID Type**: "GCID" (default for custom products)
+- **Merchant Suggested ASIN**: "NEW" (for all custom products)
 
 ### Optimization Guidelines
+- **Title Format**: "Genuine Molex MiniFit Jr [PIN-COUNT]-Pin [GENDER] Wire Harness - [LENGTH] - 2-Pack - [SPECS]"
 - **Title Length**: 150-200 characters optimal
 - **Bullet Points**: 5 points, 500 characters each
-- **Description**: Comprehensive but scannable
-- **Keywords**: Research-based, relevant terms
+- **Description**: Use bullet formatting (•) with clear section headers (CAPS)
+- **Keywords**: Replace "MFJ" with "Molex MiniFit Jr" equivalents
 - **Images**: High-resolution, multiple angles
+- **Application Focus**: Robotics > Electronics > Industrial > Automotive/Marine
 
 ### Compliance Checks
 - RoHS compliance for electronic components

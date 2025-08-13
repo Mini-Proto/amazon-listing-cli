@@ -11,9 +11,12 @@ export interface HarnessConfig {
     wire_gauge: string;
     length: string;
     connector_type: string;
+    cable_type?: string;
+    connector_gender?: string;
     current_rating?: string;
     voltage_rating?: string;
     temperature_range?: string;
+    style?: string;
   };
   pricing: {
     price: number;
@@ -26,6 +29,20 @@ export interface HarnessConfig {
     merchant_suggested_asin: string;
     search_keywords: string[];
     bullet_points: string[];
+    variation_theme?: string;
+    variation_data?: {
+      parent_sku?: string;
+      variants: Array<{
+        sku: string;
+        asin?: string;
+        size_name?: string;
+        color_name?: string;
+        pin_count?: number;
+        length?: string;
+        connector_type?: string;
+        price?: number;
+      }>;
+    };
   };
 }
 
@@ -76,9 +93,25 @@ export const CONNECTOR_TYPES = [
   'Bullet Connector',
   'Pin Connector',
   'Molex Connector',
+  'Molex MiniFit Jr',
   'JST Connector',
   'Deutsch Connector',
   'Custom Connector'
+] as const;
+
+// Cable types
+export const CABLE_TYPES = [
+  'Silicone Wire',
+  'PVC Wire',
+  'PTFE Wire',
+  'Custom Connector'
+] as const;
+
+// Connector gender options
+export const CONNECTOR_GENDERS = [
+  'Male-to-Male',
+  'Female-to-Female',
+  'Male-to-Female'
 ] as const;
 
 // Valid external product ID types
@@ -143,6 +176,14 @@ export const VALIDATION_RULES = {
     connector_type: {
       required: true,
       validValues: CONNECTOR_TYPES,
+    },
+    cable_type: {
+      required: false,
+      validValues: CABLE_TYPES,
+    },
+    connector_gender: {
+      required: false,
+      validValues: CONNECTOR_GENDERS,
     },
   },
   pricing: {

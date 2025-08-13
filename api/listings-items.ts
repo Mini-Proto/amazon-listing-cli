@@ -2,7 +2,10 @@ import { SPAPIClient } from './client.js';
 import { SPAPIResponse } from './types.js';
 import { HarnessConfig } from '../config/harness-schema.js';
 import { UploadedImage } from './image-upload.js';
+import { ConfigManager } from '../utils/config.js';
 import chalk from 'chalk';
+import fs from 'fs/promises';
+import path from 'path';
 
 export interface ListingItem {
   sku: string;
@@ -35,6 +38,7 @@ export interface CreateListingResponse {
   sku: string;
   status: 'ACCEPTED' | 'INVALID';
   submissionId: string;
+  asin?: string;
   issues?: Array<{
     code: string;
     message: string;
@@ -89,12 +93,29 @@ export class ListingsItemsAPI {
 
       // Handle both payload and direct response formats
       const responseData = response.payload || response;
+      const submissionId = (responseData as any).submissionId || '';
+      
+      // Try to get the ASIN from the created listing
+      let asin = '';
+      try {
+        // Wait a moment for the listing to be processed
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        const listingDetails = await this.getListing(harnessConfig.product.sku, marketplaceIds);
+        if (listingDetails && listingDetails.asin) {
+          asin = listingDetails.asin;
+          // Save ASIN record
+          await this.saveAsinRecord(harnessConfig.product.sku, asin, submissionId);
+        }
+      } catch (error) {
+        console.log(chalk.gray(`💭 Could not retrieve ASIN immediately: ${error instanceof Error ? error.message : String(error)}`));
+      }
       
       return {
         sku: harnessConfig.product.sku,
         status: (responseData as any).status || 'ACCEPTED',
-        submissionId: (responseData as any).submissionId || '',
-        issues: (responseData as any).issues || []
+        submissionId,
+        issues: (responseData as any).issues || [],
+        asin
       };
 
     } catch (error) {
@@ -104,6 +125,10 @@ export class ListingsItemsAPI {
 
   async getListing(sku: string, marketplaceIds: string[]): Promise<ListingItem | null> {
     try {
+      const configManager = new ConfigManager();
+      const config = await configManager.load();
+      const sellerId = config.amazon.sellerId;
+
       const params = {
         marketplaceIds: marketplaceIds.join(','),
         includedData: 'summaries,attributes,fulfillmentAvailability,procurement',
@@ -111,7 +136,7 @@ export class ListingsItemsAPI {
 
       const response = await this.client.makeRequest<ListingItem>(
         'GET',
-        `/listings/2021-08-01/items/${sku}`,
+        `/listings/2021-08-01/items/${sellerId}/${sku}`,
         undefined,
         params
       );
@@ -298,12 +323,30 @@ export class ListingsItemsAPI {
         }
       ] : undefined,
 
-      // Alternative format that Amazon might expect
+      // FBA ONLY (Fulfilled by Amazon) - no FBM option
       fulfillment_availability: [
         {
-          fulfillment_channel_code: 'DEFAULT',
+          fulfillment_channel_code: 'AMAZON_NA',
           quantity: 100,
           marketplace_id: marketplaceId,
+        }
+      ],
+
+      // Pricing/Offer information for marketplace
+      purchasable_offer: [
+        {
+          marketplace_id: marketplaceId,
+          currency: 'USD',
+          our_price: [
+            {
+              schedule: [
+                {
+                  value_with_tax: harnessConfig.pricing.price
+                }
+              ]
+            }
+          ],
+          quantity: 100
         }
       ],
 
@@ -327,7 +370,7 @@ export class ListingsItemsAPI {
           type: [
             {
               language_tag: 'en_US',
-              value: harnessConfig.specifications.connector_type
+              value: harnessConfig.specifications.cable_type || 'Silicone Wire'
             }
           ],
           marketplace_id: marketplaceId,
@@ -345,6 +388,13 @@ export class ListingsItemsAPI {
       number_of_pins: [
         {
           value: harnessConfig.specifications.pin_count,
+          marketplace_id: marketplaceId,
+        }
+      ],
+
+      number_of_items: [
+        {
+          value: this.extractPackQuantity(harnessConfig.product.sku),
           marketplace_id: marketplaceId,
         }
       ],
@@ -381,13 +431,6 @@ export class ListingsItemsAPI {
       batteries_required: [
         {
           value: false,
-          marketplace_id: marketplaceId,
-        }
-      ],
-
-      number_of_items: [
-        {
-          value: 1,
           marketplace_id: marketplaceId,
         }
       ],
@@ -429,7 +472,7 @@ export class ListingsItemsAPI {
       connector_gender: [
         {
           language_tag: 'en_US',
-          value: 'Male-to-Female',
+          value: harnessConfig.specifications.connector_gender || this.inferConnectorGender(harnessConfig.product.sku),
           marketplace_id: marketplaceId,
         }
       ],
@@ -449,6 +492,33 @@ export class ListingsItemsAPI {
           marketplace_id: marketplaceId,
         }
       ],
+
+      // Style field for product variations
+      style: harnessConfig.specifications.style ? [
+        {
+          language_tag: 'en_US',
+          value: harnessConfig.specifications.style,
+          marketplace_id: marketplaceId,
+        }
+      ] : undefined,
+
+      // Electrical specifications with units
+      voltage: harnessConfig.specifications.voltage_rating ? [
+        {
+          unit: 'volts',
+          value: parseFloat(harnessConfig.specifications.voltage_rating.match(/\d+/)?.[0] || '0'),
+          marketplace_id: marketplaceId,
+        }
+      ] : undefined,
+
+      // Remove current_rating field - Amazon doesn't accept it
+      // current_rating: harnessConfig.specifications.current_rating ? [
+      //   {
+      //     unit: 'amperes',
+      //     value: parseFloat(harnessConfig.specifications.current_rating.match(/\d+/)?.[0] || '0'),
+      //     marketplace_id: marketplaceId,
+      //   }
+      // ] : undefined,
 
       country_of_origin: [
         {
@@ -514,6 +584,78 @@ export class ListingsItemsAPI {
       return 'meters';
     } else {
       return 'inches'; // default
+    }
+  }
+
+  private inferConnectorGender(sku: string): string {
+    // Extract connector types from SKU pattern: MPA-{FAMILY}-{PINS}p-{TYPE1}-{TYPE2}-{LENGTH}-{PACK}pk
+    const parts = sku.split('-');
+    if (parts.length >= 5) {
+      const type1 = parts[3]; // First connector type (M/F)
+      const type2 = parts[4]; // Second connector type (M/F)
+      
+      if (type1 === 'M' && type2 === 'M') {
+        return 'Male-to-Male';
+      } else if (type1 === 'F' && type2 === 'F') {
+        return 'Female-to-Female';
+      } else if ((type1 === 'M' && type2 === 'F') || (type1 === 'F' && type2 === 'M')) {
+        return 'Male-to-Female';
+      }
+    }
+    return 'Male-to-Female'; // Default fallback
+  }
+
+  private extractPackQuantity(sku: string): number {
+    // Extract pack quantity from SKU pattern: MPA-{FAMILY}-{PINS}p-{TYPE1}-{TYPE2}-{LENGTH}-{PACK}pk
+    const parts = sku.split('-');
+    if (parts.length >= 7) {
+      const packPart = parts[6]; // Pack size part (e.g., "2pk")
+      const match = packPart.match(/(\d+)pk/);
+      if (match) {
+        return parseInt(match[1], 10);
+      }
+    }
+    return 1; // Default fallback
+  }
+
+  private async saveAsinRecord(sku: string, asin: string, submissionId: string): Promise<void> {
+    try {
+      const asinRecordsPath = path.join(process.cwd(), 'production-listings', 'asin-records.json');
+      
+      // Read existing records or create empty array
+      let records = [];
+      try {
+        const existingData = await fs.readFile(asinRecordsPath, 'utf8');
+        records = JSON.parse(existingData);
+      } catch (error) {
+        // File doesn't exist, start with empty array
+        records = [];
+      }
+
+      // Add new record
+      const newRecord = {
+        sku,
+        asin,
+        submissionId,
+        createdAt: new Date().toISOString(),
+        listingUrl: `https://www.amazon.com/dp/${asin}`
+      };
+
+      // Check if SKU already exists and update, otherwise add new
+      const existingIndex = records.findIndex((record: any) => record.sku === sku);
+      if (existingIndex >= 0) {
+        records[existingIndex] = { ...records[existingIndex], ...newRecord };
+        console.log(chalk.yellow(`📝 Updated ASIN record for ${sku}: ${asin}`));
+      } else {
+        records.push(newRecord);
+        console.log(chalk.green(`📝 Saved ASIN record for ${sku}: ${asin}`));
+      }
+
+      // Save back to file
+      await fs.writeFile(asinRecordsPath, JSON.stringify(records, null, 2));
+      
+    } catch (error) {
+      console.log(chalk.yellow(`⚠️  Could not save ASIN record: ${error instanceof Error ? error.message : String(error)}`));
     }
   }
 

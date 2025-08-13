@@ -1,0 +1,114 @@
+# Molex MiniFit Jr Wire Harness Complete Family
+# Family SKU: MPA-MFJ-FAMILY
+# Parent listing for all MFJ pin counts, connector types, and lengths
+
+product:
+  title: "Genuine Molex MiniFit Jr Wire Harness Complete Family - 2/4/6/8 Pin - Multiple Lengths & Connector Types - High Temp Silicone Wire - Electronics Grade"
+  sku: "MPA-MFJ-FAMILY"
+  brand: "Generic"
+  manufacturer: "MiniProto"
+  description: |
+    Complete family of professional-grade Molex MiniFit Jr wire harnesses designed for electronics, robotics, and industrial applications. Built with genuine Molex MiniFit Jr connectors and premium 18 AWG high-strand-count silicone wire, this comprehensive family delivers exceptional flexibility, durability, and performance in demanding environments.
+
+    Available in multiple pin counts (2, 4, 6, 8), connector configurations (Female-to-Female, Female-to-Male, Male-to-Male), and lengths (6-inch, 12-inch) to suit any application requirement.
+
+    KEY FEATURES
+    • Genuine Molex MiniFit Jr connectors for maximum compatibility
+    • 18 AWG with 150 strands of tinned copper for extreme flexibility
+    • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
+    • Electronics-grade assembly built to IPC/WHMA-A-620 workmanship standards
+    • Black wire construction for a clean, professional look
+    • Complete range of pin counts and connector configurations
+
+    AVAILABLE CONFIGURATIONS
+    • Pin Counts: 2-pin, 4-pin, 6-pin, 8-pin
+    • Connector Types: Female-to-Female, Female-to-Male, Male-to-Male
+    • Lengths: 6 inches, 12 inches
+    • All variants sold in convenient 2-packs
+
+    TECHNICAL SPECIFICATIONS
+    • Connector System: Molex MiniFit Jr series
+    • Wire Gauge: 18 AWG, 150 strands tinned copper
+    • Insulation: High-temp silicone
+    • Color: Black
+    • Current Rating: 9A per pin
+    • Voltage Rating: 600V max
+    • Temperature Range: -40C to +200C
+
+    APPLICATIONS
+    • Robotics, drones, and R&D prototypes
+    • Custom electronics projects
+    • Industrial control and automation
+    • Electronics prototyping and development
+    • Extension cables for Molex MiniFit Jr-equipped systems
+    • Automotive electrical systems and modifications
+    • Power distribution and control systems
+
+    QUALITY ASSURANCE
+    Each harness is manufactured to IPC/WHMA-A-620 standards with rigorous quality control. All connectors are tested for proper fit and electrical continuity before packaging.
+
+specifications:
+  connector_type: "Molex MiniFit Jr"
+  wire_gauge: "18 AWG"
+  cable_type: "Silicone Wire"
+  current_rating: "9A per pin"
+  voltage_rating: "600V"
+  temperature_range: "-40C to +200C"
+  pin_count: 2
+  length: "6 inches"
+
+pricing:
+  price: 10.99
+
+images: []
+
+amazon:
+  category: "automotive-electrical"
+  external_product_id_type: "NEW"
+  merchant_suggested_asin: "NEW"
+  variation_theme: "size_name"
+  
+  variation_data:
+    parent_sku: "MPA-MFJ-FAMILY"
+    variants:
+      - sku: "MPA-MFJ-2P-F-F-6IN-2PK"
+        asin: "B0FM6P5M8H"
+        size_name: "6 inches"
+        pin_count: 2
+        length: "6 inches"
+        connector_type: "Female-to-Female"
+        price: 10.99
+      - sku: "MPA-MFJ-2P-F-F-12IN-2PK"
+        asin: "B0FM6HFFDJ"
+        size_name: "12 inches"
+        pin_count: 2
+        length: "12 inches"
+        connector_type: "Female-to-Female"
+        price: 12.99
+  
+  search_keywords:
+    - "Molex MiniFit Jr wire harness"
+    - "electronics connector cable family"
+    - "2 4 6 8 pin wire harness"
+    - "MiniFit Jr connector complete set"
+    - "18 AWG silicone wire harness"
+    - "high temperature wire harness"
+    - "tinned copper cable assembly"
+    - "female male connector harness"
+    - "Molex MiniFit Jr complete family"
+    - "electronics prototyping wire"
+    - "robotics grade wire harness"
+    - "black silicone wire cable"
+    - "electronics wiring harness family"
+    - "multiple pin count harness"
+    - "custom electronics cable set"
+    - "automotive wire harness family"
+    - "industrial connector harness"
+    - "extension cable family"
+  
+  bullet_points:
+    - "COMPLETE MOLEX MINIFIT JR FAMILY: Full range of 2/4/6/8-pin harnesses in Female-to-Female, Female-to-Male, and Male-to-Male configurations"
+    - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance across all variants"
+    - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
+    - "ELECTRONICS-GRADE ASSEMBLY: All variants built to IPC/WHMA-A-620 workmanship standards for consistent quality"
+    - "MULTIPLE OPTIONS: Available in 6-inch and 12-inch lengths, all sold in convenient 2-packs for maximum flexibility"
