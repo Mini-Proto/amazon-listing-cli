@@ -1,0 +1,96 @@
+# Molex Micro-Fit 3.0 Wire Harness Complete Family
+# Family SKU: MPA-UF3-FAMILY
+# Parent listing for all UF3 pin counts, connector types, and lengths
+
+product:
+  title: "Genuine Molex Micro-Fit 3.0 Wire Harness Complete Family - 2/4/6/8 Pin - Multiple Lengths & Connector Types - High Temp Silicone Wire - Electronics Grade"
+  sku: "MPA-UF3-FAMILY"
+  brand: "Generic"
+  manufacturer: "MiniProto"
+  description: |
+    Complete family of professional-grade Molex Micro-Fit 3.0 wire harnesses designed for compact electronics, IoT devices, and embedded systems. Built with genuine Molex Micro-Fit 3.0 connectors and premium 18 AWG high-strand-count silicone wire, this comprehensive family delivers exceptional flexibility, durability, and space-saving performance in demanding environments.
+
+    Available in multiple pin counts (2, 4, 6, 8), connector configurations (Female-to-Female, Female-to-Male, Male-to-Male), and lengths (6-inch, 12-inch) to suit any compact application requirement.
+
+    KEY FEATURES
+    • Genuine Molex Micro-Fit 3.0 connectors for maximum compatibility and space efficiency
+    • 18 AWG with 150 strands of tinned copper for extreme flexibility in tight spaces
+    • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
+    • Electronics-grade assembly built to IPC/WHMA-A-620 workmanship standards
+    • Black wire construction for a clean, professional look
+
+    AVAILABLE CONFIGURATIONS
+    • Pin Counts: 2-pin, 4-pin, 6-pin, 8-pin
+    • Connector Types: Female-to-Female, Female-to-Male, Male-to-Male
+    • Lengths: 6 inches, 12 inches
+    • All variants sold in convenient 2-packs
+
+    TECHNICAL SPECIFICATIONS
+    • Connector System: Molex Micro-Fit 3.0 series (3.0mm pitch)
+    • Wire Gauge: 18 AWG, 150 strands tinned copper
+    • Current Rating: 5A per pin
+    • Voltage Rating: 600V max
+    • Temperature Range: -40C to +200C
+
+    APPLICATIONS
+    • IoT devices and compact electronics
+    • Embedded systems and microcontroller projects
+    • Drone electronics and compact robotics
+    • Custom electronics prototyping
+    • Space-constrained industrial applications
+    • Consumer electronics and gaming peripherals
+
+    QUALITY ASSURANCE
+    Each harness is manufactured to IPC/WHMA-A-620 standards with rigorous quality control. All connectors are tested for proper fit and electrical continuity before packaging.
+
+specifications:
+  connector_type: "Molex Micro-Fit 3.0"
+  wire_gauge: "18 AWG"
+  cable_type: "Silicone Wire"
+  current_rating: "5A per pin"
+  voltage_rating: "600V"
+  temperature_range: "-40C to +200C"
+  pin_count: 2
+  length: "6 inches"
+
+pricing:
+  price: 10.99
+
+images: []
+
+amazon:
+  category: "automotive-electrical"
+  external_product_id_type: "GCID"
+  merchant_suggested_asin: "NEW"
+  variation_theme: "size_name"
+  
+  variation_data:
+    parent_sku: "MPA-UF3-FAMILY"
+    variants: []
+  
+  search_keywords:
+    - "Molex Micro-Fit 3.0 wire harness"
+    - "compact electronics connector cable family"
+    - "2 4 6 8 pin micro wire harness"
+    - "Micro-Fit 3.0 connector complete set"
+    - "18 AWG silicone wire harness compact"
+    - "high temperature micro wire harness"
+    - "tinned copper cable assembly small"
+    - "female male micro connector harness"
+    - "Molex Micro-Fit 3.0 complete family"
+    - "IoT electronics prototyping wire"
+    - "compact robotics grade wire harness"
+    - "black silicone micro wire cable"
+    - "embedded systems wiring harness"
+    - "space saving pin count harness"
+    - "custom compact electronics cable"
+    - "micro connector wire harness family"
+    - "drone electronics connector harness"
+    - "medical device wire assembly"
+  
+  bullet_points:
+    - "COMPLETE MOLEX MICRO-FIT 3.0 FAMILY: Full range of 2/4/6/8-pin compact harnesses in Female-to-Female, Female-to-Male, and Male-to-Male configurations"
+    - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance in space-constrained applications"
+    - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in demanding compact environments"
+    - "ELECTRONICS-GRADE ASSEMBLY: All variants built to IPC/WHMA-A-620 workmanship standards with 5A per pin current rating"
+    - "MULTIPLE OPTIONS: Available in 6-inch and 12-inch lengths, all sold in convenient 2-packs for IoT, embedded systems, and compact electronics"
