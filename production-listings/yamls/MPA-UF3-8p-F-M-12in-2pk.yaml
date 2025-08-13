@@ -1,0 +1,87 @@
+# Molex Micro-Fit 8-Pin Female to Male Wire Harness - 12 Inch - 2-Pack
+# SKU: MPA-UF3-8P-F-M-12IN-2PK
+# Electronics-grade Molex Micro-Fit 3.0 connector system with high-temp, fine-strand silicone wire
+
+product:
+  title: "Genuine Molex Micro-Fit 3.0 8-Pin Female to Male Wire Harness - 12 Inch - 2-Pack - High Temp 200C Silicone Wire - 150-Strand Tinned Copper - Electronics & Robotics Grade"
+  sku: "MPA-UF3-8P-F-M-12IN-2PK"
+  brand: "Generic"
+  manufacturer: "MiniProto"
+  description: |
+    Professional-grade 8-pin Molex Micro-Fit 3.0 female-to-male wire harness designed for compact electronics, robotics, and embedded systems. Built with genuine Molex Micro-Fit 3.0 2x4 female receptacle and male header connectors and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in space-constrained applications.
+
+    KEY FEATURES
+    • Genuine Molex Micro-Fit 3.0 2x4 female receptacle to male header connectors for versatile connections
+    • 18 AWG with 150 strands of tinned copper for extreme flexibility
+    • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
+    • 12-inch length ideal for medium connections, extensions, or flexible routing
+    • Electronics-grade assembly built to IPC/WHMA-A-620 workmanship standards
+    • Black wire construction for a clean, professional look
+    • Sold in a convenient 2-pack for multiple connections or backup
+
+    TECHNICAL SPECIFICATIONS
+    • Connector Type: Molex Micro-Fit 3.0 2x4 female receptacle to male header
+    • Wire Gauge: 18 AWG, 150 strands tinned copper
+    • Insulation: High-temp silicone
+    • Length: 12 inches (305mm)
+    • Color: Black
+    • Current Rating: 40A total (5A per pin)
+    • Voltage Rating: 600V max
+    • Temperature Range: -40C to +200C
+
+    APPLICATIONS
+    • Compact electronics and embedded systems
+    • IoT devices and sensors
+    • Robotics, drones, and R&D prototypes
+    • Custom electronics projects
+    • Industrial control and automation
+    • Electronics prototyping and development
+    • Extension cables for Molex Micro-Fit 3.0-equipped systems
+
+    QUALITY ASSURANCE
+    Each harness is manufactured to IPC/WHMA-A-620 standards with rigorous quality control. All connectors are tested for proper fit and electrical continuity before packaging.
+
+specifications:
+  pin_count: 8
+  wire_gauge: "18 AWG"
+  length: "12 inches"
+  connector_type: "Molex Micro-Fit 3.0"
+  cable_type: "Silicone Wire"
+  connector_gender: "Female-to-Male"
+  current_rating: "40A"
+  voltage_rating: "600V"
+  temperature_range: "-40C to +200C"
+  style: "8P-F-M-12IN"
+
+pricing:
+  price: 21.99
+
+images:
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-UF3-8p-F-M-12in-2pk-Main.png"
+  - "/Users/amalcoci/Documents/amazon-listing-cli/production-listings/images/MPA-UF3-8p-F-M-12in-2pk-Secondary.png"
+
+amazon:
+  category: "automotive-electrical"
+  merchant_suggested_asin: "NEW"
+  search_keywords:
+    - "Molex Micro-Fit 3.0 wire harness 8 pin"
+    - "compact electronics female male connector cable"
+    - "2x4 receptacle header wire harness"
+    - "12 inch Molex Micro-Fit connector"
+    - "18 AWG silicone wire"
+    - "high temperature wire harness"
+    - "tinned copper cable"
+    - "female to male harness"
+    - "Molex Micro-Fit 8 pin connector"
+    - "electronics prototyping wire"
+    - "robotics grade wire harness"
+    - "black silicone wire cable"
+    - "compact electronics cable"
+    - "2 pack connector set"
+    - "embedded systems cable"
+  bullet_points:
+    - "GENUINE MOLEX MICRO-FIT CONNECTORS: Authentic Molex Micro-Fit 3.0 2x4 female receptacle to male header connectors for versatile, reliable connections"
+    - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance"
+    - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
+    - "ASSEMBLED IN THE USA: Professional-grade harness assembly performed in the United States with rigorous quality control and testing"
+    - "VALUE 2-PACK: Includes two 12-inch harnesses for quick installs, extensions, or spares"

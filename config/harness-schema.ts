@@ -95,6 +95,7 @@ export const CONNECTOR_TYPES = [
   'Pin Connector',
   'Molex Connector',
   'Molex MiniFit Jr',
+  'Molex Micro-Fit 3.0',
   'JST Connector',
   'Deutsch Connector',
   'Custom Connector'

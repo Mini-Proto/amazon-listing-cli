@@ -12,7 +12,7 @@ async function updateParentVariations() {
       clientId: process.env.AMAZON_CLIENT_ID!,
       clientSecret: process.env.AMAZON_CLIENT_SECRET!,
       refreshToken: process.env.AMAZON_REFRESH_TOKEN!,
-      region: process.env.AMAZON_REGION || 'us-east-1',
+      region: (process.env.AMAZON_REGION as 'us-east-1' | 'eu-west-1' | 'us-west-2') || 'us-east-1',
       marketplaceId: process.env.AMAZON_MARKETPLACE_ID!,
       sellerId: process.env.AMAZON_SELLER_ID!,
       sandbox: process.env.AMAZON_SANDBOX === 'true'
@@ -36,7 +36,7 @@ async function updateParentVariations() {
     for (const child of childASINs) {
       try {
         console.log(chalk.gray(`Checking ${child.sku} (${child.asin})...`));
-        const response = await listingsAPI.getListing(child.sku);
+        const response = await listingsAPI.getListing(child.sku, [config.marketplaceId]);
         
         if (response) {
           console.log(chalk.green(`✅ Found: ${child.sku}`));
@@ -50,7 +50,7 @@ async function updateParentVariations() {
           }
         }
       } catch (error) {
-        console.log(chalk.red(`❌ Error checking ${child.sku}: ${error.message}`));
+        console.log(chalk.red(`❌ Error checking ${child.sku}: ${(error as Error).message}`));
       }
     }
 
@@ -61,7 +61,7 @@ async function updateParentVariations() {
     console.log('4. Set variation theme (size_name, style_name, etc.)');
 
   } catch (error) {
-    console.error(chalk.red('❌ Error:'), error.message);
+    console.error(chalk.red('❌ Error:'), (error as Error).message);
   }
 }
 
