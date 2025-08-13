@@ -5,6 +5,7 @@
 product:
   title: "Genuine Molex MiniFit Jr Wire Harness Complete Family - 2/4/6/8 Pin - Multiple Lengths & Connector Types - High Temp Silicone Wire - Electronics Grade"
   sku: "MPA-MFJ-FAMILY"
+  asin: "B0FM7BJB5K"
   brand: "Generic"
   manufacturer: "MiniProto"
   description: |
@@ -64,8 +65,8 @@ images: []
 
 amazon:
   category: "automotive-electrical"
-  external_product_id_type: "NEW"
-  merchant_suggested_asin: "NEW"
+  external_product_id_type: "ASIN"
+  merchant_suggested_asin: "B0FM7BJB5K"
   variation_theme: "size_name"
   
   variation_data:
@@ -85,6 +86,13 @@ amazon:
         length: "12 inches"
         connector_type: "Female-to-Female"
         price: 12.99
+      - sku: "MPA-MFJ-4P-F-F-6IN-2PK"
+        asin: "PENDING"
+        size_name: "6 inches"
+        pin_count: 4
+        length: "6 inches"
+        connector_type: "Female-to-Female"
+        price: 14.99
   
   search_keywords:
     - "Molex MiniFit Jr wire harness"

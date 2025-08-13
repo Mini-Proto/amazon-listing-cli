@@ -27,6 +27,7 @@ export interface HarnessConfig {
     category: string;
     external_product_id_type: string;
     merchant_suggested_asin: string;
+    parent_asin?: string;
     search_keywords: string[];
     bullet_points: string[];
     variation_theme?: string;
@@ -216,6 +217,9 @@ export const VALIDATION_RULES = {
     merchant_suggested_asin: {
       required: true,
       validValues: MERCHANT_SUGGESTED_ASIN_VALUES,
+    },
+    parent_asin: {
+      required: false,
     },
     search_keywords: {
       minCount: 3,

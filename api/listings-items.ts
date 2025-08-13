@@ -548,6 +548,9 @@ export class ListingsItemsAPI {
       ];
     }
 
+    // Note: parent_asin relationships are handled separately via variation management APIs
+    // Amazon SP-API doesn't accept parent_asin directly in listing creation
+
     // Only include external_product_id for existing products (not new listings)
     if (harnessConfig.amazon.merchant_suggested_asin !== 'NEW') {
       attributes.external_product_id = [

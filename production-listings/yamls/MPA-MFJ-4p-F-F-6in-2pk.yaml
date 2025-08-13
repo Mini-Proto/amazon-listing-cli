@@ -61,6 +61,8 @@ images:
 amazon:
   category: "automotive-electrical"
   merchant_suggested_asin: "NEW"
+  parent_asin: "B0FM7BJB5K"
+  variation_theme: "style_name"
   search_keywords:
     - "Molex MiniFit Jr wire harness 4 pin"
     - "electronics female connector cable"
