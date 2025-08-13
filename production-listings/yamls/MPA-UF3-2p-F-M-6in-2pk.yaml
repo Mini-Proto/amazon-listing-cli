@@ -8,10 +8,10 @@ product:
   brand: "Generic"
   manufacturer: "MiniProto"
   description: |
-    Professional-grade 2-pin Molex Micro-Fit 3.0 female-to-male wire harness designed for compact electronics, robotics, and embedded systems. Built with genuine Molex Micro-Fit 3.0 1x2 female receptacle and male header connectors and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in space-constrained applications.
+    Professional-grade 2-pin Molex Micro-Fit 3.0 female-to-male wire harness designed for compact electronics, robotics, and embedded systems. Built with genuine Molex Micro-Fit 3.0 1x2 female receptacle and male plug connectors and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in space-constrained applications.
 
     KEY FEATURES
-    • Genuine Molex Micro-Fit 3.0 1x2 female receptacle to male header connectors for versatile connections
+    • Genuine Molex Micro-Fit 3.0 1x2 female receptacle to male plug connectors for versatile connections
     • 18 AWG with 150 strands of tinned copper for extreme flexibility
     • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
     • 6-inch length ideal for short connections, extensions, or compact setups
@@ -20,7 +20,7 @@ product:
     • Sold in a convenient 2-pack for multiple connections or backup
 
     TECHNICAL SPECIFICATIONS
-    • Connector Type: Molex Micro-Fit 3.0 1x2 female receptacle to male header
+    • Connector Type: Molex Micro-Fit 3.0 1x2 female receptacle to male plug
     • Wire Gauge: 18 AWG, 150 strands tinned copper
     • Insulation: High-temp silicone
     • Length: 6 inches (152mm)
@@ -66,7 +66,7 @@ amazon:
   search_keywords:
     - "Molex Micro-Fit 3.0 wire harness 2 pin"
     - "compact electronics female male connector cable"
-    - "1x2 receptacle header wire harness"
+    - "1x2 receptacle plug wire harness"
     - "6 inch Molex Micro-Fit connector"
     - "18 AWG silicone wire"
     - "high temperature wire harness"
@@ -80,7 +80,7 @@ amazon:
     - "2 pack connector set"
     - "embedded systems cable"
   bullet_points:
-    - "GENUINE MOLEX MICRO-FIT CONNECTORS: Authentic Molex Micro-Fit 3.0 1x2 female receptacle to male header connectors for versatile, reliable connections"
+    - "GENUINE MOLEX MICRO-FIT CONNECTORS: Authentic Molex Micro-Fit 3.0 1x2 female receptacle to male plug connectors for versatile, reliable connections"
     - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance"
     - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
     - "ASSEMBLED IN THE USA: Professional-grade harness assembly performed in the United States with rigorous quality control and testing"

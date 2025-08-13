@@ -8,10 +8,10 @@ product:
   brand: "Generic"
   manufacturer: "MiniProto"
   description: |
-    Professional-grade 8-pin Molex MiniFit Jr female-to-male wire harness designed for electronics, robotics, and industrial applications. Built with genuine Molex MiniFit Jr 2x4 connectors (female receptacle and male header) and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in demanding environments.
+    Professional-grade 8-pin Molex MiniFit Jr female-to-male wire harness designed for electronics, robotics, and industrial applications. Built with genuine Molex MiniFit Jr 2x4 connectors (female receptacle and male plug) and premium 18 AWG high-strand-count silicone wire, this harness delivers exceptional flexibility, durability, and performance in demanding environments.
 
     KEY FEATURES
-    • Genuine Molex MiniFit Jr 2x4 connectors - female receptacle to male header
+    • Genuine Molex MiniFit Jr 2x4 connectors - female receptacle to male plug
     • 18 AWG with 150 strands of tinned copper for extreme flexibility
     • Silicone insulation rated to 200C and 600V for high-temp, high-voltage environments
     • 12-inch length ideal for medium-distance connections, extensions, or adapter setups
@@ -20,7 +20,7 @@ product:
     • Sold in a convenient 2-pack for multiple connections or backup
 
     TECHNICAL SPECIFICATIONS
-    • Connector Type: Molex MiniFit Jr 2x4 female receptacle to male header
+    • Connector Type: Molex MiniFit Jr 2x4 female receptacle to male plug
     • Wire Gauge: 18 AWG, 150 strands tinned copper
     • Insulation: High-temp silicone
     • Length: 12 inches (305mm)
@@ -78,7 +78,7 @@ amazon:
     - "2 pack connector set"
     - "custom electronics cable"
   bullet_points:
-    - "GENUINE MOLEX MINIFIT JR CONNECTORS: Authentic Molex MiniFit Jr 2x4 female receptacle to male header for secure, reliable connections"
+    - "GENUINE MOLEX MINIFIT JR CONNECTORS: Authentic Molex MiniFit Jr 2x4 female receptacle to male plug for secure, reliable connections"
     - "PREMIUM WIRE: 18 AWG with 150 strands of tinned copper for extreme flexibility and vibration resistance"
     - "HIGH TEMP & VOLTAGE: Silicone insulation rated to 200C and 600V for dependable performance in harsh environments"
     - "ASSEMBLED IN THE USA: Professional-grade harness assembly performed in the United States with rigorous quality control and testing"
